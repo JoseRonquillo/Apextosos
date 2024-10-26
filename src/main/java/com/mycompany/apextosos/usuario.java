@@ -36,4 +36,5 @@ public class usuario {
     public void setCursos(String cursos) {
         this.cursos = cursos;
     }
+    
 }

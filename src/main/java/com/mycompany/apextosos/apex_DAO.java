@@ -39,5 +39,4 @@ ArrayList<usuario>datos = new ArrayList<usuario>();
 }
     return null;
     }
-    
 }
