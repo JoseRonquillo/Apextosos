@@ -15,12 +15,31 @@ import javax.swing.border.Border;
  * @author chatman
  */
 public class login extends javax.swing.JFrame {
-
+    private int theme;
+    private Color color1;
+    private Color color2;
+    private Color color3;
+    
     /**
      * Creates new form login
      */
     public login() {
         initComponents();
+        this.theme = 0;
+        initComponents2();   
+    }
+
+    private void initComponents2(){
+        if (this.theme == 0){
+            this.color1 = Color.decode("#111518");
+            this.color2 = Color.decode("#0B0F11");
+            this.color3 = Color.decode("#090B0C");
+        }
+        else{
+            this.color1 = Color.decode("#F5F5F5");
+            this.color2 = Color.decode("#E1E8EB");
+            this.color3 = Color.decode("#D6D9DC");
+        }
     }
 
     /**
@@ -205,7 +224,7 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_check_cActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        apex_DAO apx = new apex_DAO();
+        apex_DAO apx = new apex_DAO(this.color1, this.color2, this.color3);
         Boolean comprobacion = apx.verificar_login(jTextField1.getText(), jPasswordField1.getText());
         if(comprobacion){
         dispose();
@@ -218,7 +237,7 @@ public class login extends javax.swing.JFrame {
      informacion[3]=general.getPuntaje();
      informacion[4]=general.getNombre();
      }
-        Menu_principal mp = new Menu_principal(informacion[4].toString(),informacion[2].toString());
+        Menu_principal mp = new Menu_principal(informacion[4].toString(),informacion[2].toString(), this.color1, this.color2, this.color3);
         mp.setVisible(true);
         } else {
         JOptionPane.showMessageDialog(null,"Contraseña o Usuario incorrectos","Error",JOptionPane.INFORMATION_MESSAGE);

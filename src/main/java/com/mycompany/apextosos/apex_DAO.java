@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import java.awt.Color;
 
 
 public class apex_DAO {
@@ -15,7 +16,18 @@ public class apex_DAO {
     PreparedStatement ps;
     ResultSet rs;
     Conexion acceso = new Conexion();
+    private Color color1;
+    private Color color2;
+    private Color color3;
     
+    
+    public apex_DAO(Color data_color1, Color data_color2, Color data_color3) {
+        this.color1 = data_color1;
+        this.color2 = data_color2;
+        this.color3 = data_color3;
+        
+    }
+
     public ArrayList<usuario> listar (){
         String sql = "select * from usuarios;";
     try {

@@ -15,16 +15,20 @@ import javax.swing.SwingUtilities;
  * @author chatman
  */
 public class Adentro_curso extends javax.swing.JPanel {
-    
+    private Color color1;
+    private Color color2;
+    private Color color3;
     String nombre;
     String curso;
     JPanel panel_principal;
     
-    public Adentro_curso(String nombre, String curso, JPanel panel_principal) {
+    public Adentro_curso(String nombre, String curso, JPanel panel_principal, Color color1_d, Color color2_d, Color color3_d ) {
         this.nombre = nombre;
         this.curso = curso;
         this.panel_principal = panel_principal;
-        
+        this.color1 = color1_d;
+        this.color2 = color2_d;
+        this.color3 = color3_d;
         initComponents();
         jLabel1.setText(curso);
         
@@ -85,6 +89,11 @@ public class Adentro_curso extends javax.swing.JPanel {
         jButton5.setBorder(null);
         jButton5.setBorderPainted(false);
         jButton5.setContentAreaFilled(false);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_reto.png"))); // NOI18N
         jButton6.setBorder(null);
@@ -150,11 +159,9 @@ public class Adentro_curso extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Color colorBlue = Color.decode("#111518");
-        Color color2 = Color.decode("#0B0F11");
-        Color color3 = Color.decode("#090B0C");
 
-        game_frame return_game = new game_frame(colorBlue, color2, color3);
+
+        game_frame return_game = new game_frame(this.color1, this.color2, this.color3);
         return_game.setSize(2000, 1000);
         return_game.setLocation(0,0 );
         this.removeAll();
@@ -167,6 +174,21 @@ public class Adentro_curso extends javax.swing.JPanel {
         this.repaint();        
                               // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        System.out.println(this.color1);
+        settings tools = new settings(this.color1, this.color2, this.color3);
+        tools.setSize(4000, 2000);
+        tools.setLocation(0,0 );
+        this.removeAll();
+        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(true);
+        frame.setSize(700, 525);
+        this.add(tools);
+        this.revalidate();
+        this.repaint();                // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

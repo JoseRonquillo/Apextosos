@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.mycompany.apextosos;
-
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -25,7 +25,7 @@ public class Home extends javax.swing.JPanel {
     String cursos;
     JPanel panel_principal;
     
-    public Home(String nombre, String cursos, JPanel panel_principal) {
+    public Home(String nombre, String cursos, JPanel panel_principal, Color color1, Color color2, Color color3) {
         this.nombre = nombre;
         this.cursos = cursos;
         this.panel_principal = panel_principal;
@@ -36,7 +36,7 @@ public class Home extends javax.swing.JPanel {
         char caracter = cursos.charAt(i);
         String letra = String.valueOf(caracter);
         if (letra.equals(",")){
-            boton_curso boton = new boton_curso(nombre,curso,panel_principal);
+            boton_curso boton = new boton_curso(nombre,curso,panel_principal, color1, color2, color3);
             panel_cursos.add(boton);
             curso = "";
         } else

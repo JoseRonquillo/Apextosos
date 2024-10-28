@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.apextosos;
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -47,7 +48,8 @@ public class Conexion {
     public static void main(String[] args) {
         Conexion sp= new Conexion();
         System.out.println(sp.Conectar());
-        apex_DAO apx = new apex_DAO();
+        //definir colores 
+        apex_DAO apx = new apex_DAO(Color.decode("#111518"), Color.decode("#0B0F11"), Color.decode("#090B0C"));
         apx.listar();
     }
 }

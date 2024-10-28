@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.apextosos;
-
+import java.awt.Color;
 import java.awt.BorderLayout;
 
 /**
@@ -11,15 +11,22 @@ import java.awt.BorderLayout;
  * @author chatman
  */
 public class Menu_principal extends javax.swing.JFrame {
+    private Color color1;
+    private Color color2;
+    private Color color3;
 
     String nombre;
     String cursos;
     
-    public Menu_principal(String nombre, String cursos) {
+    public Menu_principal(String nombre, String cursos, Color color1_d, Color color2_d, Color color3_d) {
         this.nombre = nombre;
         this.cursos = cursos;
+        this.color1  = color1_d;
+        this.color2 = color2_d;
+        this.color3 = color3_d;
+
         initComponents();
-        Home hm = new Home(nombre,cursos,panel_principal);
+        Home hm = new Home(nombre,cursos,panel_principal, color1_d, color2_d, color3_d);
         hm.setSize(807,511);
         hm.setLocation(0,0);
         panel_principal.removeAll();
@@ -70,7 +77,7 @@ public class Menu_principal extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[], Color color1, Color color2, Color color3) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -100,7 +107,7 @@ public class Menu_principal extends javax.swing.JFrame {
                 java.awt.EventQueue.invokeLater(new Runnable() {
             
             public void run() {
-                new Menu_principal(nombre,cursos).setVisible(true);
+                new Menu_principal(nombre,cursos, color1, color2, color3).setVisible(true);
             }
         });
         }

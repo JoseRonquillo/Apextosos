@@ -256,14 +256,10 @@ public class settings extends javax.swing.JPanel {
             this.color3 = Color.decode("#090B0C");
         }
         else if (this.jComboBox1.getSelectedItem() == "Light"){
-            this.color1 = Color.decode("#fefffe");
-            this.color2 = Color.decode("#f6f8fa");
-            this.color3 = Color.decode("#515151");
-            System.out.println("cambioa blando ");
-            System.out.println(this.color1);
-            System.out.println(this.color2);
-            System.out.println(this.color3);
-            System.out.println("----------");
+            this.color1 = Color.decode("#F5F5F5");
+            this.color2 = Color.decode("#E1E8EB");
+            this.color3 = Color.decode("#D6D9DC");
+
 
         }
                 // TODO add your handling code here:
