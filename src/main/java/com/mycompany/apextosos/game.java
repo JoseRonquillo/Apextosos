@@ -25,8 +25,7 @@ public class game extends javax.swing.JFrame {
         initComponents();
         initComponents2();
     }
-
-    
+   
     public void initComponents2() {
         JTextArea texto = new JTextArea(createBlankLines(13 *cantidad ));
         texto.setEditable(false);

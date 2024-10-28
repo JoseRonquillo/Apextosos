@@ -10,7 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
 
-
+    
 /**
  *
  * @author JuanMa
@@ -22,7 +22,23 @@ public class level_game extends javax.swing.JPanel {
      */
     public level_game() {
         initComponents();
+        load_images();
     }
+    
+    public void load_images(){
+                try {
+            // Reemplaza con el enlace directo a la imagen en Google Drive
+            String urlString = "https://drive.google.com/uc?export=download&id=1JqyfJI3cpTKwVCUDh9nd8fFZVy0j43Ve";
+            URL url = new URL(urlString);
+            ImageIcon imagen = new ImageIcon(url);
+            this.question.setIcon(imagen);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al cargar la imagen.");
+        }
+    }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -73,19 +89,19 @@ public class level_game extends javax.swing.JPanel {
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("EJEMPLO2");
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("jLabel1");
+        jLabel3.setText("EJEMPLO");
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("jLabel1");
+        jLabel4.setText("EJEMPLO");
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("jLabel1");
+        jLabel5.setText("EJMPLO");
 
         jRadioButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jRadioButton1.setText("A");
@@ -125,26 +141,28 @@ public class level_game extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(158, 158, 158)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(151, 151, 151)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jRadioButton2)
+                            .addComponent(jRadioButton1))
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(249, 249, 249)
+                                .addComponent(jRadioButton3))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadioButton4))))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(230, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(177, 177, 177)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(151, 151, 151)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton1))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton4))
-                .addGap(248, 248, 248))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
