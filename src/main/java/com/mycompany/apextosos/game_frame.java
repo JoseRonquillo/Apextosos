@@ -21,25 +21,32 @@ import java.awt.*;
  * @author JuanMa
  */
 public class game_frame extends javax.swing.JPanel {
-    public Color colorBlue = Color.decode("#111518");
+    private Color color1;
+    private Color color2;
+    private Color color3;
     public int cantidad = 20;
     public int level = 15;
 
     /**
      * Creates new form game_frame
      */
-    public game_frame() {
+    public game_frame(Color type_color1, Color type_color2, Color type_color3) {
         initComponents();
-        initComponents2();
+        this.color1 = type_color1;
+        this.color2 = type_color2; 
+        this.color3 = type_color3;
+        initComponents2(this.color1);
 
     }
 
     
-        public void initComponents2() {
+    public void initComponents2(Color color1m) {
         JTextArea texto = new JTextArea(createBlankLines(13 *cantidad ));
+        this.setBackground(this.color1);
+        this.panel1.setBackground(this.color2);
         texto.setEditable(false);
         texto.setLineWrap(false);
-        texto.setBackground(colorBlue);
+        texto.setBackground(color1m);
         texto.setBounds(500, 100, 400, 600); 
         JScrollPane scroll = new JScrollPane(texto, JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scroll.setBorder(null);
@@ -110,8 +117,8 @@ public class game_frame extends javax.swing.JPanel {
             }
 
 
-        this.add(scroll);
-        
+            this.add(scroll);
+            
     }
 
     
@@ -289,7 +296,7 @@ public class game_frame extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        level_game sta = new level_game();
+        level_game sta = new level_game(this.color1, this.color2, this.color3);
         sta.setSize(4000, 2000);
         sta.setLocation(0,0 );
         this.removeAll();
@@ -307,7 +314,8 @@ public class game_frame extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        settings tools = new settings();
+        System.out.println(this.color1);
+        settings tools = new settings(this.color1, this.color2, this.color3);
         tools.setSize(4000, 2000);
         tools.setLocation(0,0 );
         this.removeAll();

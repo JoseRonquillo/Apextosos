@@ -4,6 +4,8 @@
  */
 package com.mycompany.apextosos;
 
+import java.awt.Color;
+
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
@@ -12,13 +14,33 @@ import javax.swing.SwingUtilities;
  * @author JuanMa
  */
 public class settings extends javax.swing.JPanel {
-
+    private Color color1;
+    private Color color2;
+    private Color color3;
     /**
      * Creates new form settings
      */
-    public settings() {
+    public settings(Color type_color1, Color type_color2, Color type_color3) {
+        this.color1 = type_color1;
+        this.color2 = type_color2; 
+        this.color3 = type_color3;
         initComponents();
+        initComponents2(color1, color2);
+        System.out.println(this.color1 + "s");
+        System.out.println(this.color2 + "s");
+    
     }
+    
+    private void initComponents2(Color color1, Color color2) {
+        this.jComboBox1.removeAllItems();
+        this.jComboBox1.addItem("Dark");
+        this.jComboBox1.addItem("Light");
+        this.setBackground(color1);
+        this.jPanel1.setBackground(color2);
+
+    
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -195,7 +217,8 @@ public class settings extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        game_frame return_game = new game_frame();
+        System.out.println(this.color1);
+        game_frame return_game = new game_frame(this.color1, this.color2, this.color3);
         return_game.setSize(2000, 1000);
         return_game.setLocation(0,0 );
         this.removeAll();
@@ -209,7 +232,17 @@ public class settings extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        if (this.jComboBox1.getSelectedItem() == "Dark"){
+            this.color1 = Color.decode("#111518");
+            this.color2 = Color.decode("#0B0F11");
+            this.color3 = Color.decode("#090B0C");
+        }
+        else if (this.jComboBox1.getSelectedItem() == "Light"){
+            this.color1 = Color.decode("#fefffe");
+            this.color2 = Color.decode("#f6f8fa");
+            this.color3 = Color.decode("#515151");
+        }
+                // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
 

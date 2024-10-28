@@ -9,7 +9,6 @@ import com.mysql.cj.jdbc.exceptions.SQLError;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.BorderLayout;
 /**
  *
  * @author JuanMa
@@ -19,10 +18,12 @@ public class game extends javax.swing.JFrame {
     public Color colorBlue = Color.decode("#111518");
     public int cantidad = 20;
     public int level = 15;
+    public Color color2 = Color.decode("#0B0F11");
 
     public game() {
         initComponents();
         initComponents2();
+        
     }
    
     public void initComponents2() {
@@ -308,22 +309,12 @@ public class game extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        level_game sta = new level_game();
-        sta.setSize(2000, 1000);
-        sta.setLocation(0,0 );
-        jPanel1.setVisible(false);
-        this.revalidate();
-        this.repaint();
-        this.add(sta);
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        game_frame gamef = new game_frame();
+        Color colorBlue = Color.decode("#111518");
+        Color color2 = Color.decode("#0B0F11");
+        Color color3 = Color.decode("#090B0C");
+
+        game_frame gamef = new game_frame(colorBlue, color2, color3);
         gamef.setSize(2000, 1000);
         gamef.setLocation(0,0 );
         jPanel1.setVisible(false);
@@ -334,15 +325,16 @@ public class game extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        settings tools = new settings();
-        tools.setSize(2000, 500);
-        tools.setLocation(0,0 );
-        jPanel1.setVisible(false);
-        this.revalidate();
-        this.repaint();
-        this.setSize(625, 500);
-        this.add(tools);
+
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+
+    }//GEN-LAST:event_jButton4ActionPerformed
     
     public static void main(String args[]) {
 

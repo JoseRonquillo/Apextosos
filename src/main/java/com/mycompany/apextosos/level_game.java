@@ -16,22 +16,35 @@ import java.net.URL;
  * @author JuanMa
  */
 public class level_game extends javax.swing.JPanel {
-
+    private Color color1;
+    private Color color2;
+    private Color color3;
     /**
      * Creates new form level_game
      */
-    public level_game() {
+    public level_game(Color type_color1, Color type_color2, Color type_color3) {
+        this.color1 = type_color1;
+        this.color2 = type_color2; 
+        this.color3 = type_color3;
         initComponents();
         load_images();
-        initComponents2();
+        initComponents2(this.color1, this.color2, this.color3);
+
     }
     
-    public void initComponents2(){
+    public void initComponents2(Color color1, Color color2, Color color3){
         this.buttonGroup1.add(this.jRadioButton1);
         this.buttonGroup1.add(this.jRadioButton2);
         this.buttonGroup1.add(this.jRadioButton3);
         this.buttonGroup1.add(this.jRadioButton4);
+        this.setBackground(color1);
+        this.jPanel1.setBackground(color3);
+        this.jButton4.setBackground(color3);
+        this.jButton7.setBackground(color3);
+
     }
+
+
     
     public void load_images(){
                 try {
@@ -267,7 +280,7 @@ public class level_game extends javax.swing.JPanel {
     }//GEN-LAST:event_jRadioButton4ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        game_frame return_game = new game_frame();
+        game_frame return_game = new game_frame(this.color1, this.color2, this.color3);
         return_game.setSize(2000, 1000);
         return_game.setLocation(0,0 );
         this.removeAll();
