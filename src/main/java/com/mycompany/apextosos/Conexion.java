@@ -8,6 +8,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 public class Conexion {
+
     static Connection contacto=null;
     Connection con;
     String url="jdbc:mysql://mysql-apextosos-p22021a29-5702.e.aivencloud.com:12571/defaultdb";
