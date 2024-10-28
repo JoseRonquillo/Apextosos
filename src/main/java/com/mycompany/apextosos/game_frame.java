@@ -36,18 +36,18 @@ public class game_frame extends javax.swing.JPanel {
         this.color3 = type_color3;
         initComponents();
 
-        initComponents2(this.color1);
+        initComponents2(this.color1, this.color2);
 
     }
 
     
-    public void initComponents2(Color color1m) {
+    public void initComponents2(Color color1m, Color color2m) {
         JTextArea texto = new JTextArea(createBlankLines(13 *cantidad ));
         this.setBackground(this.color1);
-        this.panel1.setBackground(this.color2);
+        this.panel1.setBackground(color2m);
         texto.setEditable(false);
         texto.setLineWrap(false);
-        texto.setBackground(color1m);
+        texto.setBackground(color2m);
         texto.setBounds(500, 100, 400, 600); 
         JScrollPane scroll = new JScrollPane(texto, JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scroll.setBorder(null);

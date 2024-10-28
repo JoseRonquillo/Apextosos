@@ -4,7 +4,11 @@
  */
 package com.mycompany.apextosos;
 
+import java.awt.Color;
+
+import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -51,6 +55,11 @@ public class Adentro_curso extends javax.swing.JPanel {
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_problemas.png"))); // NOI18N
         jButton2.setBorder(null);
@@ -139,6 +148,25 @@ public class Adentro_curso extends javax.swing.JPanel {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Color colorBlue = Color.decode("#111518");
+        Color color2 = Color.decode("#0B0F11");
+        Color color3 = Color.decode("#090B0C");
+
+        game_frame return_game = new game_frame(colorBlue, color2, color3);
+        return_game.setSize(2000, 1000);
+        return_game.setLocation(0,0 );
+        this.removeAll();
+        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(true);
+        frame.setSize(900, 800);
+        this.add(return_game);
+        this.revalidate();
+        this.repaint();        
+                              // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
