@@ -12,6 +12,8 @@ public class usuario {
     public String usuario;
     public String contrasena;
     public String cursos;
+    public int puntaje;
+    public String nombre;
 
     public String getUsuario() {
         return usuario;
@@ -35,6 +37,22 @@ public class usuario {
 
     public void setCursos(String cursos) {
         this.cursos = cursos;
+    }
+
+    public int getPuntaje() {
+        return puntaje;
+    }
+
+    public void setPuntaje(int puntaje) {
+        this.puntaje = puntaje;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     
 }
