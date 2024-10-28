@@ -21,6 +21,7 @@ public class settings extends javax.swing.JPanel {
      * Creates new form settings
      */
     public settings(Color type_color1, Color type_color2, Color type_color3) {
+
         this.color1 = type_color1;
         this.color2 = type_color2; 
         this.color3 = type_color3;
@@ -37,6 +38,23 @@ public class settings extends javax.swing.JPanel {
         this.jComboBox1.addItem("Light");
         this.setBackground(color1);
         this.jPanel1.setBackground(color2);
+        this.jLabel1.setForeground(Color.white);
+        if(color1.equals(Color.decode("#111518"))){
+            this.jLabel1.setForeground(Color.WHITE);
+            this.jButton7.setForeground(Color.white);
+        }
+        else{
+            this.jLabel1.setForeground(Color.BLACK);
+            this.jButton7.setForeground(Color.BLACK);
+
+
+        }
+        System.out.println("color1");
+
+        System.out.println(color1);
+        System.out.println("color1");
+        System.out.println(Color.decode("#111518"));
+        System.out.println("color1");
 
     
     }
@@ -241,6 +259,12 @@ public class settings extends javax.swing.JPanel {
             this.color1 = Color.decode("#fefffe");
             this.color2 = Color.decode("#f6f8fa");
             this.color3 = Color.decode("#515151");
+            System.out.println("cambioa blando ");
+            System.out.println(this.color1);
+            System.out.println(this.color2);
+            System.out.println(this.color3);
+            System.out.println("----------");
+
         }
                 // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
