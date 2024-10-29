@@ -6,9 +6,11 @@
 
 package com.mycompany.apextosos;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Random;
+
 import javax.swing.*;
 import java.awt.*;
-import java.net.URL;
 
     
 /**
@@ -19,7 +21,10 @@ public class level_game extends javax.swing.JPanel {
     private Color color1;
     private Color color2;
     private Color color3;
-    private int level_generate;
+    private String level_generate;
+    private String exercise;
+    private String dimensional;
+    private String answer; 
     String nombre;
     String curso;
     JPanel panel_principal;
@@ -34,10 +39,10 @@ public class level_game extends javax.swing.JPanel {
         this.color1 = type_color1;
         this.color2 = type_color2; 
         this.color3 = type_color3;
-        this.level_generate = level_generate;
+        this.level_generate = String.valueOf(level_generate + 1);
         initComponents();
-        load_images();
         initComponents2(this.color1, this.color2, this.color3);
+        load_images();
 
     }
     
@@ -50,15 +55,73 @@ public class level_game extends javax.swing.JPanel {
         this.jPanel1.setBackground(color3);
         this.jButton4.setBackground(color3);
         this.jButton7.setBackground(color3);
+        // busqueda de dato
+        apex_DAO dao = new apex_DAO(color1, color2, color3);
+        ArrayList<level_fisica> nivel = dao.Buscar_level_fisica(this.level_generate);
+        if (nivel != null && !nivel.isEmpty()) {
+            for (level_fisica p : nivel) {
+                this.exercise = p.pregunta;
+                this.dimensional = p.dimensional;
+                this.answer = p.respuesta;
+                // generar random donde guardar la respuesta 
+                Random random = new Random();
+                int randomInt = random.nextInt(4) + 1;
+                // generar rangos
+                float inicio_rango = Float.parseFloat(p.respuesta);
+
+                float rango_min = inicio_rango * 0.5f - inicio_rango;
+                float rango_max = inicio_rango * 0.5f + inicio_rango;
+
+                // generar archivos 
+                String value1 = generate_false_answer(rango_min, rango_max);
+                String value2 = generate_false_answer(rango_min, rango_max);
+                String value3 = generate_false_answer(rango_min, rango_max);
+
+                if (randomInt == 1){
+                    this.jLabel4.setText(this.answer);
+                    this.jLabel5.setText(value1);
+                    this.jLabel3.setText(value2);
+                    this.jLabel1.setText(value3);
+                }
+                else if (randomInt == 2){
+                    this.jLabel5.setText(this.answer);
+                    this.jLabel4.setText(value1);
+                    this.jLabel3.setText(value2);
+                    this.jLabel1.setText(value3);
+                }
+                else if (randomInt == 3){
+                    this.jLabel3.setText(this.answer);
+                    this.jLabel5.setText(value1);
+                    this.jLabel4.setText(value2);
+                    this.jLabel1.setText(value3);
+                }
+                else{
+                    this.jLabel1.setText(this.answer);
+                    this.jLabel5.setText(value1);
+                    this.jLabel3.setText(value2);
+                    this.jLabel4.setText(value3);
+                }
+
+                System.out.println(randomInt);
+
+            }
+        } else {
+            System.out.println("No se encontraron datos o hubo un error.");
+        }
 
     }
 
+    public String generate_false_answer(float min, float max){
+        float randomFloat = min + (float) Math.random() * (max - min);
+        String formattedFloat = String.format("%.2f", randomFloat);
+        return formattedFloat;
+    }
 
     
     public void load_images(){
                 try {
             // Reemplaza con el enlace directo a la imagen en Google Drive
-            String urlString = "https://drive.google.com/uc?export=download&id=1JqyfJI3cpTKwVCUDh9nd8fFZVy0j43Ve";
+            String urlString = this.exercise;
             URL url = new URL(urlString);
             ImageIcon imagen = new ImageIcon(url);
             this.question.setIcon(imagen);

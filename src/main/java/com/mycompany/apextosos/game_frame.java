@@ -85,7 +85,6 @@ public class game_frame extends javax.swing.JPanel {
                 e.printStackTrace(); 
             }
 
-        // buscar el nivel del usuario
         apex_DAO dao = new apex_DAO(color1, color2, color3);
 
         System.out.println("Buscando progreso para el usuario: " + this.nombre);
@@ -102,7 +101,6 @@ public class game_frame extends javax.swing.JPanel {
         }
         //  parte grafica 
 
-        System.out.println(this.nombre);
         this.lb_curse_name.setText(this.curso);
         JTextArea texto = new JTextArea(createBlankLines(13*cantidad));
         this.setBackground(this.color1);

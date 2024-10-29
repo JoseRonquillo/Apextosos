@@ -2,14 +2,10 @@
 package com.mycompany.apextosos;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
-
-import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
 
 import java.awt.Color;
 
@@ -86,12 +82,11 @@ ArrayList<usuario>datos = new ArrayList<usuario>();
     try {
         con = acceso.Conectar();
         ps = con.prepareStatement(sql);
-        ps.setString(1, usuario); // Usar un parámetro para evitar inyecciones SQL
+        ps.setString(1, usuario); 
         rs = ps.executeQuery();
 
         while (rs.next()) {
             ProgresoCurso progreso = new ProgresoCurso();
-            // Asume que las columnas están en orden y ajusta los índices correctamente
             progreso.setCampo1(rs.getString(1)); // Primer campo
             progreso.setCampo2(rs.getString(3)); // Segundo campo
             // ... añadir otroscampos según sea necesario
@@ -112,7 +107,39 @@ ArrayList<usuario>datos = new ArrayList<usuario>();
     return datos; // Retorna la lista (vacía si no hay resultados)
 }
 
-       
+public ArrayList<level_fisica> Buscar_level_fisica(String level) {
+    String sql = "SELECT * FROM `fisica` WHERE `idfisica` = ?";
+    ArrayList<level_fisica> datos = new ArrayList<>();
+
+    try {
+        con = acceso.Conectar();
+        ps = con.prepareStatement(sql);
+        ps.setString(1, level); // Usar un parámetro para evitar inyecciones SQL
+        rs = ps.executeQuery();
+
+        while (rs.next()) {
+            level_fisica nivel = new level_fisica();
+            // Asigna correctamente cada campo a su método de configuración
+            nivel.set_campo1(rs.getString(1)); // Columna 1
+            nivel.set_campo2(rs.getString(2)); // Columna 2
+            nivel.set_campo3(rs.getString(3)); // Columna 3
+            nivel.set_campo4(rs.getString(4)); // Columna 4
+            // ... Añadir otros campos según sea necesario
+            datos.add(nivel);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace(); // Imprime la excepción para depuración
+    } finally {
+        try {
+            if (rs != null) rs.close();
+            if (ps != null) ps.close();
+            if (con != null) con.close();
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de excepciones al cerrar recursos
+        }
+    }
+    return datos;
+}
 
     
     
