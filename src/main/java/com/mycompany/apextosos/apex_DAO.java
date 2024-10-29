@@ -178,7 +178,7 @@ public ArrayList<level_fisica> Buscar_level_fisica(String level) {
 }
 
 public ArrayList<level_fisica> Buscar_level_precalculo(String level) {
-    String sql = "SELECT * FROM `fisica` WHERE `idfisica` = ?";
+    String sql = "SELECT * FROM `Precalculo` WHERE `idPrecalculo` = ?";
     ArrayList<level_fisica> datos = new ArrayList<>();
 
     try {
