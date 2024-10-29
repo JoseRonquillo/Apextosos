@@ -166,7 +166,7 @@ public class game_frame extends javax.swing.JPanel {
                 botones[i].addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        System.out.println("Botón " + (index + 1) + " presionado.");
+                        generate_level(index);
                     }
                 });
 
@@ -181,6 +181,20 @@ public class game_frame extends javax.swing.JPanel {
 
             this.add(scroll);
         }
+    }
+
+    public void generate_level(int type_of_level){
+        level_game sta = new level_game(this.nombre, this.curso, this.panel_principal, this.color1, this.color2, this.color3);
+        sta.setSize(4000, 2000);
+        sta.setLocation(0,0 );
+        this.removeAll();
+        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(true);
+        frame.setSize(1200, 800);
+        this.add(sta);
+        this.revalidate();
+        this.repaint();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -364,17 +378,6 @@ public class game_frame extends javax.swing.JPanel {
         this.repaint();      }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        level_game sta = new level_game(this.nombre, this.curso, this.panel_principal, this.color1, this.color2, this.color3);
-        sta.setSize(4000, 2000);
-        sta.setLocation(0,0 );
-        this.removeAll();
-        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(true);
-        frame.setSize(1200, 800);
-        this.add(sta);
-        this.revalidate();
-        this.repaint();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
