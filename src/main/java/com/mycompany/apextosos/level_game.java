@@ -6,9 +6,11 @@
 
 package com.mycompany.apextosos;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Random;
+
 import javax.swing.*;
 import java.awt.*;
-import java.net.URL;
 
     
 /**
@@ -19,16 +21,28 @@ public class level_game extends javax.swing.JPanel {
     private Color color1;
     private Color color2;
     private Color color3;
+    private String level_generate;
+    private String exercise;
+    private String dimensional;
+    private String answer; 
+    String nombre;
+    String curso;
+    JPanel panel_principal;
+    /**
     /**
      * Creates new form level_game
      */
-    public level_game(Color type_color1, Color type_color2, Color type_color3) {
+    public level_game(String nombre, String curso, JPanel panel_principal, Color type_color1, Color type_color2, Color type_color3, int level_generate) {
+        this.nombre = nombre;
+        this.curso = curso;
+        this.panel_principal = panel_principal;
         this.color1 = type_color1;
         this.color2 = type_color2; 
         this.color3 = type_color3;
+        this.level_generate = String.valueOf(level_generate + 1);
         initComponents();
-        load_images();
         initComponents2(this.color1, this.color2, this.color3);
+        load_images();
 
     }
     
@@ -41,15 +55,73 @@ public class level_game extends javax.swing.JPanel {
         this.jPanel1.setBackground(color3);
         this.jButton4.setBackground(color3);
         this.jButton7.setBackground(color3);
+        // busqueda de dato
+        apex_DAO dao = new apex_DAO(color1, color2, color3);
+        ArrayList<level_fisica> nivel = dao.Buscar_level_fisica(this.level_generate);
+        if (nivel != null && !nivel.isEmpty()) {
+            for (level_fisica p : nivel) {
+                this.exercise = p.pregunta;
+                this.dimensional = p.dimensional;
+                this.answer = p.respuesta;
+                // generar random donde guardar la respuesta 
+                Random random = new Random();
+                int randomInt = random.nextInt(4) + 1;
+                // generar rangos
+                float inicio_rango = Float.parseFloat(p.respuesta);
+
+                float rango_min = inicio_rango * 0.5f - inicio_rango;
+                float rango_max = inicio_rango * 0.5f + inicio_rango;
+
+                // generar archivos 
+                String value1 = generate_false_answer(rango_min, rango_max);
+                String value2 = generate_false_answer(rango_min, rango_max);
+                String value3 = generate_false_answer(rango_min, rango_max);
+
+                if (randomInt == 1){
+                    this.jLabel4.setText(this.answer);
+                    this.jLabel5.setText(value1);
+                    this.jLabel3.setText(value2);
+                    this.jLabel1.setText(value3);
+                }
+                else if (randomInt == 2){
+                    this.jLabel5.setText(this.answer);
+                    this.jLabel4.setText(value1);
+                    this.jLabel3.setText(value2);
+                    this.jLabel1.setText(value3);
+                }
+                else if (randomInt == 3){
+                    this.jLabel3.setText(this.answer);
+                    this.jLabel5.setText(value1);
+                    this.jLabel4.setText(value2);
+                    this.jLabel1.setText(value3);
+                }
+                else{
+                    this.jLabel1.setText(this.answer);
+                    this.jLabel5.setText(value1);
+                    this.jLabel3.setText(value2);
+                    this.jLabel4.setText(value3);
+                }
+
+                System.out.println(randomInt);
+
+            }
+        } else {
+            System.out.println("No se encontraron datos o hubo un error.");
+        }
 
     }
 
+    public String generate_false_answer(float min, float max){
+        float randomFloat = min + (float) Math.random() * (max - min);
+        String formattedFloat = String.format("%.2f", randomFloat);
+        return formattedFloat;
+    }
 
     
     public void load_images(){
                 try {
             // Reemplaza con el enlace directo a la imagen en Google Drive
-            String urlString = "https://drive.google.com/uc?export=download&id=1JqyfJI3cpTKwVCUDh9nd8fFZVy0j43Ve";
+            String urlString = this.exercise;
             URL url = new URL(urlString);
             ImageIcon imagen = new ImageIcon(url);
             this.question.setIcon(imagen);
@@ -89,7 +161,6 @@ public class level_game extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(9, 11, 12));
 
         question.setBackground(new java.awt.Color(255, 255, 255));
-        question.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         question.setForeground(new java.awt.Color(255, 255, 255));
         question.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         question.setToolTipText("");
@@ -99,9 +170,9 @@ public class level_game extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(question, javax.swing.GroupLayout.PREFERRED_SIZE, 703, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(question, javax.swing.GroupLayout.PREFERRED_SIZE, 1235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,9 +271,9 @@ public class level_game extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(92, 92, 92)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(92, 92, 92)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -231,8 +302,10 @@ public class level_game extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(124, 124, 124)
                                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(404, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -276,11 +349,11 @@ public class level_game extends javax.swing.JPanel {
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jRadioButton4ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        game_frame return_game = new game_frame(this.color1, this.color2, this.color3);
+        game_frame return_game = new game_frame(this.nombre, this.curso, this.panel_principal, this.color1, this.color2, this.color3);
         return_game.setSize(2000, 1000);
         return_game.setLocation(0,0 );
         this.removeAll();
@@ -294,6 +367,40 @@ public class level_game extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        ButtonModel selectedModel = this.buttonGroup1.getSelection(); // Obtener el modelo seleccionado
+        if (selectedModel != null) {
+            // Comparar modelos para saber cuál está seleccionado
+            if (selectedModel.equals(this.jRadioButton1.getModel())) {
+                System.out.println("Opción 1 seleccionada");
+                System.out.println(this.jLabel4.getText());
+                if (this.jLabel4.getText() == this.answer){
+                    //gano
+                }
+            } else if (selectedModel.equals(this.jRadioButton2.getModel())) {
+                System.out.println("Opción 2 seleccionada");
+                System.out.println(this.jLabel5.getText());
+                if (this.jLabel5.getText() == this.answer){
+                    //gano
+                }
+            } else if (selectedModel.equals(this.jRadioButton3.getModel())) {
+                System.out.println("Opción 3 seleccionada");
+                System.out.println(this.jLabel1.getText());
+                if (this.jLabel1.getText() == this.answer){
+                    //gano
+                }
+            }
+             else if (selectedModel.equals(this.jRadioButton4.getModel())) {
+                System.out.println("Opción 4 seleccionada");
+                System.out.println(this.jLabel3.getText());
+                if (this.jLabel3.getText() == this.answer){
+                    //gano
+                }
+            }
+         else {
+            System.out.println("No hay ninguna opción seleccionada");
+        }
+    }
+        
 
     }//GEN-LAST:event_jButton4ActionPerformed
 

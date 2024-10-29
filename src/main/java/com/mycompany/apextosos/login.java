@@ -237,7 +237,7 @@ public class login extends javax.swing.JFrame {
      informacion[3]=general.getPuntaje();
      informacion[4]=general.getNombre();
      }
-        Menu_principal mp = new Menu_principal(informacion[4].toString(),informacion[2].toString(), this.color1, this.color2, this.color3);
+        Menu_principal mp = new Menu_principal(informacion[0].toString(),informacion[2].toString(), this.color1, this.color2, this.color3);
         mp.setVisible(true);
         } else {
         JOptionPane.showMessageDialog(null,"Contraseña o Usuario incorrectos","Error",JOptionPane.INFORMATION_MESSAGE);

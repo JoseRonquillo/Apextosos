@@ -7,6 +7,7 @@ package com.mycompany.apextosos;
 import java.awt.Color;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 /**
@@ -17,11 +18,16 @@ public class settings extends javax.swing.JPanel {
     private Color color1;
     private Color color2;
     private Color color3;
+    String nombre;
+    String curso;
+    JPanel panel_principal;
     /**
      * Creates new form settings
      */
-    public settings(Color type_color1, Color type_color2, Color type_color3) {
-
+    public settings(String nombre, String curso, JPanel panel_principal, Color type_color1, Color type_color2, Color type_color3) {
+        this.nombre = nombre;
+        this.curso = curso;
+        this.panel_principal = panel_principal;
         this.color1 = type_color1;
         this.color2 = type_color2; 
         this.color3 = type_color3;
@@ -45,7 +51,6 @@ public class settings extends javax.swing.JPanel {
         }
         else{
             this.jLabel1.setForeground(Color.BLACK);
-            this.jButton7.setForeground(Color.BLACK);
 
 
         }
@@ -74,7 +79,6 @@ public class settings extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(11, 15, 17));
@@ -132,29 +136,10 @@ public class settings extends javax.swing.JPanel {
             }
         });
 
-        jButton9.setBackground(new java.awt.Color(11, 15, 17));
-        jButton9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setText("APLICAR");
-        jButton9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 51, 51))); // NOI18N
-        jButton9.setBorderPainted(false);
-        jButton9.setDefaultCapable(false);
-        jButton9.setFocusPainted(false);
-        jButton9.setFocusable(false);
-        jButton9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton9.setRequestFocusEnabled(false);
-        jButton9.setRolloverEnabled(false);
-        jButton9.setVerifyInputWhenFocusTarget(false);
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-
         jButton10.setBackground(new java.awt.Color(11, 15, 17));
         jButton10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton10.setForeground(new java.awt.Color(255, 255, 255));
-        jButton10.setText("VOLVER");
+        jButton10.setText("APLICAR");
         jButton10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 51, 51))); // NOI18N
         jButton10.setBorderPainted(false);
         jButton10.setDefaultCapable(false);
@@ -179,7 +164,6 @@ public class settings extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(27, 27, 27)
@@ -193,15 +177,13 @@ public class settings extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(30, 30, 30)
-                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(135, 135, 135))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -230,21 +212,17 @@ public class settings extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
-
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         System.out.println(this.color1);
-        game_frame return_game = new game_frame(this.color1, this.color2, this.color3);
-        return_game.setSize(2000, 1000);
-        return_game.setLocation(0,0 );
-        this.removeAll();
+        Adentro_curso return_curse = new Adentro_curso(this.nombre, this.curso, this.panel_principal, this.color1, this.color2, this.color3);
+        return_curse.setSize(2000, 1000);
+        return_curse.setLocation(0,0 );
+        this.removeAll();   
         JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
-        frame.setSize(900, 800);
-        this.add(return_game);
+        frame.setSize(900, 700);
+        this.add(return_curse);
         this.revalidate();
         this.repaint();        
     }//GEN-LAST:event_jButton10ActionPerformed
@@ -270,7 +248,6 @@ public class settings extends javax.swing.JPanel {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
