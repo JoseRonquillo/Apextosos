@@ -21,13 +21,13 @@ public class Pasa_preguntas extends javax.swing.JPanel {
     Pregunta pregunta;
     JTextField[] arraytxt;
     
-    public Pasa_preguntas(JPanel panel_principal, String nombre, String curso, int codigo) {
+    public Pasa_preguntas(JPanel panel_principal, String nombre, String curso, int codigo, Color color1_d, Color color2_d, Color color3_d) {
         
         this.panel_principal = panel_principal;
         this.nombre = nombre;
         this.curso = curso;
         this.codigo = codigo;
-        apex_DAO apx = new apex_DAO();
+        apex_DAO apx = new apex_DAO(color1_d, color2_d, color3_d);
         this.pregunta = apx.Buscar_preguntaB(curso, codigo);
         initComponents();
         this.textopr.setText(pregunta.getInstrucciones() + " \n" +pregunta.getEnunciado());
