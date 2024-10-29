@@ -86,4 +86,26 @@ ArrayList<usuario>datos = new ArrayList<usuario>();
     return null;
     }
     
+    public Pregunta Buscar_preguntaB(String curso, int codigo){
+      String sql = "SELECT * FROM `"+curso+"B` WHERE `codigo` = '"+codigo+"'";
+      try {
+    con = acceso.Conectar ();
+    ps= con.prepareStatement(sql);
+    rs = ps.executeQuery();
+    Pregunta pr = new Pregunta();
+ while (rs.next()){
+    pr.setCodigo(rs.getInt(1));
+    pr.setInstrucciones(rs.getString(2));
+    pr.setEnunciado(rs.getString(3));
+    pr.setTipo(rs.getString(4));
+    pr.setP_r(rs.getString(5));
+    pr.setRespuesta(rs.getString(6));
+    pr.setPuntos(rs.getInt(7));
+}
+ return pr ;
+    }catch (Exception e) {
+}
+    return null;
+    }
+    
 }
