@@ -100,6 +100,46 @@ public class game_frame extends javax.swing.JPanel {
                 System.out.println("No se encontraron datos o hubo un error.");
             }
         }
+        }
+        else{
+            try {
+                con = acceso.Conectar();
+                String sql = "SELECT COUNT(*) AS total FROM Precalculo";
+                ps = con.prepareStatement(sql);
+                rs = ps.executeQuery();
+
+                if (rs.next()) {
+                    int totalFilas = rs.getInt("total");
+                    this.cantidad = totalFilas;
+
+                }
+            } catch (SQLException e) {
+                e.printStackTrace(); 
+            } finally {
+                try {
+                    if (rs != null) rs.close();
+                    if (ps != null) ps.close();
+                    if (con != null) con.close();
+                } catch (SQLException e) {
+                    e.printStackTrace(); 
+                }
+
+            apex_DAO dao = new apex_DAO(color1, color2, color3);
+
+            System.out.println("Buscando progreso para el usuario: " + this.nombre);
+            
+            ArrayList<ProgresoCurso> progreso = dao.BuscarProgresoUsuario2(this.nombre);
+            
+            if (progreso != null && !progreso.isEmpty()) {
+                for (ProgresoCurso p : progreso) {
+                    System.out.println(p.level_user);
+                    this.level = Integer.parseInt(p.level_user);
+                }
+            } else {
+                System.out.println("No se encontraron datos o hubo un error.");
+            }
+        }
+        }
         //  parte grafica 
 
         this.lb_curse_name.setText(this.curso);
@@ -180,7 +220,8 @@ public class game_frame extends javax.swing.JPanel {
 
             this.add(scroll);
         }
-    }
+    
+    
 
     public void generate_level(int type_of_level){
         if (type_of_level < this.level){
