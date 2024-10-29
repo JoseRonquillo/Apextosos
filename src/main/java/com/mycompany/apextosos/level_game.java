@@ -349,7 +349,7 @@ public class level_game extends javax.swing.JPanel {
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jRadioButton4ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -367,6 +367,40 @@ public class level_game extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        ButtonModel selectedModel = this.buttonGroup1.getSelection(); // Obtener el modelo seleccionado
+        if (selectedModel != null) {
+            // Comparar modelos para saber cuál está seleccionado
+            if (selectedModel.equals(this.jRadioButton1.getModel())) {
+                System.out.println("Opción 1 seleccionada");
+                System.out.println(this.jLabel4.getText());
+                if (this.jLabel4.getText() == this.answer){
+                    //gano
+                }
+            } else if (selectedModel.equals(this.jRadioButton2.getModel())) {
+                System.out.println("Opción 2 seleccionada");
+                System.out.println(this.jLabel5.getText());
+                if (this.jLabel5.getText() == this.answer){
+                    //gano
+                }
+            } else if (selectedModel.equals(this.jRadioButton3.getModel())) {
+                System.out.println("Opción 3 seleccionada");
+                System.out.println(this.jLabel1.getText());
+                if (this.jLabel1.getText() == this.answer){
+                    //gano
+                }
+            }
+             else if (selectedModel.equals(this.jRadioButton4.getModel())) {
+                System.out.println("Opción 4 seleccionada");
+                System.out.println(this.jLabel3.getText());
+                if (this.jLabel3.getText() == this.answer){
+                    //gano
+                }
+            }
+         else {
+            System.out.println("No hay ninguna opción seleccionada");
+        }
+    }
+        
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
