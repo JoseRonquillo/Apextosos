@@ -371,29 +371,33 @@ public class level_game extends javax.swing.JPanel {
         if (selectedModel != null) {
             // Comparar modelos para saber cuál está seleccionado
             if (selectedModel.equals(this.jRadioButton1.getModel())) {
-                System.out.println("Opción 1 seleccionada");
-                System.out.println(this.jLabel4.getText());
                 if (this.jLabel4.getText() == this.answer){
-                    //gano
+                    // actualizar nivel
+                    apex_DAO dao = new apex_DAO(color1, color2, color3);
+                    int new_leve = Integer.parseInt(this.level_generate) + 1;
+                    dao.actualizarCodigo(this.nombre, Integer.toString(new_leve));
                 }
+            
             } else if (selectedModel.equals(this.jRadioButton2.getModel())) {
-                System.out.println("Opción 2 seleccionada");
-                System.out.println(this.jLabel5.getText());
                 if (this.jLabel5.getText() == this.answer){
-                    //gano
+                    apex_DAO dao = new apex_DAO(color1, color2, color3);
+                    int new_leve = Integer.parseInt(this.level_generate) + 1;
+                    dao.actualizarCodigo(this.nombre, Integer.toString(new_leve));
                 }
             } else if (selectedModel.equals(this.jRadioButton3.getModel())) {
                 System.out.println("Opción 3 seleccionada");
                 System.out.println(this.jLabel1.getText());
                 if (this.jLabel1.getText() == this.answer){
-                    //gano
+                    apex_DAO dao = new apex_DAO(color1, color2, color3);
+                    int new_leve = Integer.parseInt(this.level_generate) + 1;
+                    dao.actualizarCodigo(this.nombre, Integer.toString(new_leve));
                 }
             }
              else if (selectedModel.equals(this.jRadioButton4.getModel())) {
-                System.out.println("Opción 4 seleccionada");
-                System.out.println(this.jLabel3.getText());
                 if (this.jLabel3.getText() == this.answer){
-                    //gano
+                    apex_DAO dao = new apex_DAO(color1, color2, color3);
+                    int new_leve = Integer.parseInt(this.level_generate) + 1;
+                    dao.actualizarCodigo(this.nombre, Integer.toString(new_leve));   
                 }
             }
          else {
