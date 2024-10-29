@@ -19,10 +19,17 @@ public class level_game extends javax.swing.JPanel {
     private Color color1;
     private Color color2;
     private Color color3;
+    String nombre;
+    String curso;
+    JPanel panel_principal;
+    /**
     /**
      * Creates new form level_game
      */
-    public level_game(Color type_color1, Color type_color2, Color type_color3) {
+    public level_game(String nombre, String curso, JPanel panel_principal, Color type_color1, Color type_color2, Color type_color3) {
+        this.nombre = nombre;
+        this.curso = curso;
+        this.panel_principal = panel_principal;
         this.color1 = type_color1;
         this.color2 = type_color2; 
         this.color3 = type_color3;
@@ -89,7 +96,6 @@ public class level_game extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(9, 11, 12));
 
         question.setBackground(new java.awt.Color(255, 255, 255));
-        question.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         question.setForeground(new java.awt.Color(255, 255, 255));
         question.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         question.setToolTipText("");
@@ -99,9 +105,9 @@ public class level_game extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(question, javax.swing.GroupLayout.PREFERRED_SIZE, 703, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(question, javax.swing.GroupLayout.PREFERRED_SIZE, 1235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,9 +206,9 @@ public class level_game extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(92, 92, 92)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(92, 92, 92)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -231,8 +237,10 @@ public class level_game extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(124, 124, 124)
                                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(404, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,7 +288,7 @@ public class level_game extends javax.swing.JPanel {
     }//GEN-LAST:event_jRadioButton4ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        game_frame return_game = new game_frame(this.color1, this.color2, this.color3);
+        game_frame return_game = new game_frame(this.nombre, this.curso, this.panel_principal, this.color1, this.color2, this.color3);
         return_game.setSize(2000, 1000);
         return_game.setLocation(0,0 );
         this.removeAll();

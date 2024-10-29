@@ -8,6 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
+
 import java.awt.Color;
 
 
@@ -75,6 +78,43 @@ ArrayList<usuario>datos = new ArrayList<usuario>();
 }
       return comprobado;
   }
+
+  public ArrayList<ProgresoCurso> BuscarProgresoUsuario1(String usuario) {
+    String sql = "SELECT * FROM `Progreso_Curso` WHERE `usuario_id` = ?";
+    ArrayList<ProgresoCurso> datos = new ArrayList<>();
+
+    try {
+        con = acceso.Conectar();
+        ps = con.prepareStatement(sql);
+        ps.setString(1, usuario); // Usar un parámetro para evitar inyecciones SQL
+        rs = ps.executeQuery();
+
+        while (rs.next()) {
+            ProgresoCurso progreso = new ProgresoCurso();
+            // Asume que las columnas están en orden y ajusta los índices correctamente
+            progreso.setCampo1(rs.getString(1)); // Primer campo
+            progreso.setCampo2(rs.getString(3)); // Segundo campo
+            // ... añadir otroscampos según sea necesario
+            datos.add(progreso);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace(); // Imprime la excepción para depuración
+    } finally {
+        try {
+            if (rs != null) rs.close();
+            if (ps != null) ps.close();
+            if (con != null) con.close();
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo de excepciones al cerrar recursos
+        }
+    }
+
+    return datos; // Retorna la lista (vacía si no hay resultados)
+}
+
+       
+
+    
     
     public ArrayList<usuario> Buscar_usuario(String Usuario){
       String sql = "SELECT * FROM `usuarios` WHERE `usuario` = '"+Usuario+"'";

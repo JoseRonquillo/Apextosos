@@ -4,14 +4,15 @@
  */
 package com.mycompany.apextosos;
 
-import static com.mycompany.apextosos.game.createBlankLines;
 import static java.awt.Component.CENTER_ALIGNMENT;
-
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.*;
-
 import com.mysql.cj.jdbc.exceptions.SQLError;
 import java.awt.*;
 /**
@@ -24,25 +25,86 @@ public class game_frame extends javax.swing.JPanel {
     public Color color1;
     public Color color2;
     public Color color3;
-    public int cantidad = 20;
-    public int level = 15;
+    public int cantidad;
+    public int level;
+    public int levels_completes;
+    String nombre;
+    String curso;
+    JPanel panel_principal;
+    Conexion acceso = new Conexion();
 
     /**
      * Creates new form game_frame
      */
-    public game_frame(Color type_color1, Color type_color2, Color type_color3) {
+    
+    public game_frame(String nombre, String curso, JPanel panel_principal, Color type_color1, Color type_color2, Color type_color3) {
+        this.nombre = nombre;
+        this.curso = curso;
+        this.panel_principal = panel_principal;
         this.color1 = type_color1;
         this.color2 = type_color2; 
         this.color3 = type_color3;
         initComponents();
-
         initComponents2(this.color1, this.color2);
 
     }
 
+    public static String createBlankLines(int numLines) {
+        StringBuilder blankLines = new StringBuilder();
+        for (int i = 0; i < numLines; i++) {
+            blankLines.append("\n");
+        }
+        return blankLines.toString();
+    }
     
     public void initComponents2(Color color1m, Color color2m) {
-        JTextArea texto = new JTextArea(createBlankLines(13 *cantidad ));
+        // buscar la cantidad de de niveles totales
+        Connection con = null; 
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            con = acceso.Conectar();
+            String sql = "SELECT COUNT(*) AS total FROM fisica";
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                int totalFilas = rs.getInt("total");
+                this.cantidad = totalFilas;
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); 
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+                if (con != null) con.close();
+            } catch (SQLException e) {
+                e.printStackTrace(); 
+            }
+
+        // buscar el nivel del usuario
+        apex_DAO dao = new apex_DAO(color1, color2, color3);
+
+        System.out.println("Buscando progreso para el usuario: " + this.nombre);
+        
+        ArrayList<ProgresoCurso> progreso = dao.BuscarProgresoUsuario1(this.nombre);
+        
+        if (progreso != null && !progreso.isEmpty()) {
+            for (ProgresoCurso p : progreso) {
+                System.out.println(p.level_user);
+                this.level = Integer.parseInt(p.level_user);
+            }
+        } else {
+            System.out.println("No se encontraron datos o hubo un error.");
+        }
+        //  parte grafica 
+
+        System.out.println(this.nombre);
+        this.lb_curse_name.setText(this.curso);
+        JTextArea texto = new JTextArea(createBlankLines(13*cantidad));
         this.setBackground(this.color1);
         this.panel1.setBackground(color2m);
         texto.setEditable(false);
@@ -61,10 +123,9 @@ public class game_frame extends javax.swing.JPanel {
         int contador = 0;
         String ruta;
         String txt;
-        
+        levels_completes = level - 1;
         this.lb_cantidad_niveles.setText("NIVELES: " + cantidad);
-        this.lb_cantidad_niveles_complete.setText("COMPLETADOS: " + level);
-        this.lb_curse_name.setText("PRECÁLCULO");
+        this.lb_cantidad_niveles_complete.setText("COMPLETADOS: " + levels_completes);
         this.lb_curse_name.setAlignmentY(CENTER_ALIGNMENT);
         this.lb_curse_name.setAlignmentX(CENTER_ALIGNMENT);
 
@@ -86,7 +147,7 @@ public class game_frame extends javax.swing.JPanel {
                     txt = new String("???");
                     ruta = new String("/images_games/gifts/purple.gif");
                 }
-                ImageIcon icono = new ImageIcon(game.class.getResource(ruta));
+                ImageIcon icono = new ImageIcon(game_frame.class.getResource(ruta));
                 botones[i] = new JButton(txt);
                 botones[i].setIcon(icono);
                 botones[i].setVerticalTextPosition(JLabel.CENTER);
@@ -119,7 +180,7 @@ public class game_frame extends javax.swing.JPanel {
 
 
             this.add(scroll);
-            
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -146,7 +207,6 @@ public class game_frame extends javax.swing.JPanel {
         lb_curse_name.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         lb_curse_name.setForeground(new java.awt.Color(255, 255, 255));
         lb_curse_name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lb_curse_name.setText("PRECÁLCULO");
         lb_curse_name.setToolTipText("");
 
         panel1.setBackground(new java.awt.Color(11, 15, 17));
@@ -290,11 +350,21 @@ public class game_frame extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+        System.out.println(this.color1);
+        Adentro_curso return_curse = new Adentro_curso(this.nombre, this.curso, this.panel_principal, this.color1, this.color2, this.color3);
+        return_curse.setSize(2000, 1000);
+        return_curse.setLocation(0,0 );
+        this.removeAll();   
+        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(true);
+        frame.setSize(900, 700);
+        this.add(return_curse);
+        this.revalidate();
+        this.repaint();      }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        level_game sta = new level_game(this.color1, this.color2, this.color3);
+        level_game sta = new level_game(this.nombre, this.curso, this.panel_principal, this.color1, this.color2, this.color3);
         sta.setSize(4000, 2000);
         sta.setLocation(0,0 );
         this.removeAll();
@@ -313,7 +383,7 @@ public class game_frame extends javax.swing.JPanel {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         System.out.println(this.color1);
-        settings tools = new settings(this.color1, this.color2, this.color3);
+        settings tools = new settings(this.nombre, this.curso, this.panel_principal,this.color1, this.color2, this.color3);
         tools.setSize(4000, 2000);
         tools.setLocation(0,0 );
         this.removeAll();

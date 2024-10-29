@@ -31,6 +31,13 @@ public class Adentro_curso extends javax.swing.JPanel {
         this.color3 = color3_d;
         initComponents();
         jLabel1.setText(curso);
+        this.setBackground(color1_d);
+        if(color1_d.equals(Color.decode("#111518"))){
+            this.jLabel1.setForeground(Color.WHITE);
+        }
+        else{
+            this.jLabel1.setForeground(Color.BLACK);
+        }
         
     }
 
@@ -161,7 +168,7 @@ public class Adentro_curso extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
 
-        game_frame return_game = new game_frame(this.color1, this.color2, this.color3);
+        game_frame return_game = new game_frame(this.nombre, this.curso, this.panel_principal, this.color1, this.color2, this.color3);
         return_game.setSize(2000, 1000);
         return_game.setLocation(0,0 );
         this.removeAll();
@@ -177,7 +184,7 @@ public class Adentro_curso extends javax.swing.JPanel {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         System.out.println(this.color1);
-        settings tools = new settings(this.color1, this.color2, this.color3);
+        settings tools = new settings(this.nombre, this.curso, this.panel_principal, this.color1, this.color2, this.color3);
         tools.setSize(4000, 2000);
         tools.setLocation(0,0 );
         this.removeAll();
