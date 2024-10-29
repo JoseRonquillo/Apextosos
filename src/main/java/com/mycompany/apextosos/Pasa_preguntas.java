@@ -150,6 +150,9 @@ public class Pasa_preguntas extends javax.swing.JPanel {
         for(int j = 0; j < cantidad; j++){
             if(respuestas[j].replaceAll("\\s+", "").equals(arraytxt[j].getText().replaceAll("\\s+", ""))){
                 correctas += 1;
+                arraytxt[j].setForeground(Color.GREEN);
+            } else {
+                arraytxt[j].setForeground(Color.RED);
             }
         }
         

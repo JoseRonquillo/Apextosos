@@ -152,7 +152,7 @@ public class Adentro_curso extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        int codigo = 1;
+        int codigo = 2;
         Pasa_preguntas pp = new Pasa_preguntas(panel_principal,nombre,curso,codigo);
         pp.setSize(780,635);
         pp.setLocation(0,0);
