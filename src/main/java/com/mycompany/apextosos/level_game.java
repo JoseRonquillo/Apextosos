@@ -19,6 +19,7 @@ public class level_game extends javax.swing.JPanel {
     private Color color1;
     private Color color2;
     private Color color3;
+    private int level_generate;
     String nombre;
     String curso;
     JPanel panel_principal;
@@ -26,13 +27,14 @@ public class level_game extends javax.swing.JPanel {
     /**
      * Creates new form level_game
      */
-    public level_game(String nombre, String curso, JPanel panel_principal, Color type_color1, Color type_color2, Color type_color3) {
+    public level_game(String nombre, String curso, JPanel panel_principal, Color type_color1, Color type_color2, Color type_color3, int level_generate) {
         this.nombre = nombre;
         this.curso = curso;
         this.panel_principal = panel_principal;
         this.color1 = type_color1;
         this.color2 = type_color2; 
         this.color3 = type_color3;
+        this.level_generate = level_generate;
         initComponents();
         load_images();
         initComponents2(this.color1, this.color2, this.color3);
