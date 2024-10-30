@@ -27,7 +27,7 @@ public class Menu_principal extends javax.swing.JFrame {
 
         initComponents();
         Home hm = new Home(nombre,cursos,panel_principal, color1_d, color2_d, color3_d);
-        hm.setSize(807,450);
+        hm.setSize(780,635);
         hm.setLocation(0,0);
         this.panel_principal.setBackground(color1_d);
         panel_principal.removeAll();
@@ -48,6 +48,7 @@ public class Menu_principal extends javax.swing.JFrame {
         panel_principal = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         javax.swing.GroupLayout panel_principalLayout = new javax.swing.GroupLayout(panel_principal);
         panel_principal.setLayout(panel_principalLayout);

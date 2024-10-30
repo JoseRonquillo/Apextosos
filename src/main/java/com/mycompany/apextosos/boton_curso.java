@@ -35,7 +35,7 @@ public class boton_curso extends JButton{
             @Override
             public void actionPerformed(ActionEvent e) {
             Adentro_curso ad = new Adentro_curso(nombre,curso,panel_principal, color1, color2, color3);
-            ad.setSize(1487,1411);
+            ad.setSize(780,645);
             ad.setLocation(0,0);
             panel_principal.removeAll();
             panel_principal.add(ad,BorderLayout.CENTER);

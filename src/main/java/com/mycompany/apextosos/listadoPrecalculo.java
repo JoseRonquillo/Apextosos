@@ -184,7 +184,7 @@ public class listadoPrecalculo extends javax.swing.JPanel {
             //panel_principal.add(ps,BorderLayout.CENTER);
             //panel_principal.revalidate();
             //panel_principal.repaint();
-            sta.setSize(4000, 2000);
+            sta.setSize(1200, 800);
             sta.setLocation(0,0 );
             this.removeAll();
             JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
@@ -272,7 +272,7 @@ public class listadoPrecalculo extends javax.swing.JPanel {
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(591, Short.MAX_VALUE))
+                .addContainerGap(522, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -283,7 +283,7 @@ public class listadoPrecalculo extends javax.swing.JPanel {
                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lb_curse_name, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(839, Short.MAX_VALUE))
+                .addContainerGap(525, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -298,13 +298,13 @@ public class listadoPrecalculo extends javax.swing.JPanel {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         System.out.println(this.color1);
         Adentro_curso return_curse = new Adentro_curso(this.nombre, this.curso, this.panel_principal, this.color1, this.color2, this.color3);
-        return_curse.setSize(2000, 1000);
+        return_curse.setSize(780, 635);
         return_curse.setLocation(0,0 );
         this.removeAll();   
         JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
-        frame.setSize(900, 700);
+        frame.setSize(780, 635);
         this.add(return_curse);
         this.revalidate();
         this.repaint();  
@@ -313,13 +313,13 @@ public class listadoPrecalculo extends javax.swing.JPanel {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         System.out.println(this.color1);
         settings tools = new settings(this.nombre, this.curso, this.panel_principal,this.color1, this.color2, this.color3);
-        tools.setSize(4000, 2000);
+        tools.setSize(780, 635);
         tools.setLocation(0,0 );
         this.removeAll();
         JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
-        frame.setSize(700, 525);
+        frame.setSize(780, 635);
         this.add(tools);
         this.revalidate();
         this.repaint();

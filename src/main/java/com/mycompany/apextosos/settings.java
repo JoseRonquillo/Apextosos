@@ -184,13 +184,13 @@ public class settings extends javax.swing.JPanel {
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
 
         Adentro_curso return_curse = new Adentro_curso(this.nombre, this.curso, this.panel_principal, this.color1, this.color2, this.color3);
-        return_curse.setSize(2000, 1000);
+        return_curse.setSize(780, 635);
         return_curse.setLocation(0,0 );
         this.removeAll();   
         JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
-        frame.setSize(900, 700);
+        frame.setSize(780, 635);
         this.add(return_curse);
         this.revalidate();
         this.repaint();        

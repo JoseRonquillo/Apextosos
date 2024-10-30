@@ -144,7 +144,7 @@ public class Simulacros extends javax.swing.JPanel {
         );
         panel_problemasLayout.setVerticalGroup(
             panel_problemasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 251, Short.MAX_VALUE)
+            .addGap(0, 547, Short.MAX_VALUE)
         );
 
         panel_problemas.setLayout(new GridLayout(8,1));
@@ -332,13 +332,13 @@ public class Simulacros extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, puntaje, "PUNTAJE: ", JOptionPane.INFORMATION_MESSAGE);
 
         Adentro_curso return_curse = new Adentro_curso(this.nombre, this.curso, this.panel_principal, this.color1, this.color2, this.color3);
-        return_curse.setSize(2000, 2000);
+        return_curse.setSize(780, 635);
         return_curse.setLocation(0,0 );
         this.removeAll();   
         JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
-        frame.setSize(900, 700);
+        frame.setSize(780, 635);
         this.add(return_curse);
         this.revalidate();
         this.repaint();      

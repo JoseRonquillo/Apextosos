@@ -226,13 +226,13 @@ public class game_frame extends javax.swing.JPanel {
     public void generate_level(int type_of_level){
         if (type_of_level < this.level){
             level_game sta = new level_game(this.nombre, this.curso, this.panel_principal, this.color1, this.color2, this.color3, type_of_level);
-            sta.setSize(4000, 2000);
+            sta.setSize(1280, 800);
             sta.setLocation(0,0 );
             this.removeAll();
             JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setResizable(true);
-            frame.setSize(1200, 800);
+            frame.setSize(1280, 800);
             this.add(sta);
             this.revalidate();
             this.repaint();
@@ -336,11 +336,11 @@ public class game_frame extends javax.swing.JPanel {
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(200, 200, 200)
+                .addGap(89, 89, 89)
                 .addComponent(lb_cantidad_niveles, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(lb_cantidad_niveles_complete, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -351,7 +351,7 @@ public class game_frame extends javax.swing.JPanel {
                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
                 .addComponent(lb_curse_name, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(254, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -366,13 +366,13 @@ public class game_frame extends javax.swing.JPanel {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         System.out.println(this.color1);
         Adentro_curso return_curse = new Adentro_curso(this.nombre, this.curso, this.panel_principal, this.color1, this.color2, this.color3);
-        return_curse.setSize(2000, 1000);
+        return_curse.setSize(780, 635);
         return_curse.setLocation(0,0 );
         this.removeAll();   
         JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
-        frame.setSize(900, 700);
+        frame.setSize(780, 635);
         this.add(return_curse);
         this.revalidate();
         this.repaint();      }//GEN-LAST:event_jButton7ActionPerformed
@@ -380,13 +380,13 @@ public class game_frame extends javax.swing.JPanel {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         System.out.println(this.color1);
         settings tools = new settings(this.nombre, this.curso, this.panel_principal,this.color1, this.color2, this.color3);
-        tools.setSize(4000, 2000);
+        tools.setSize(780, 635);
         tools.setLocation(0,0 );
         this.removeAll();
         JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
-        frame.setSize(700, 525);
+        frame.setSize(780, 635);
         this.add(tools);
         this.revalidate();
         this.repaint();
