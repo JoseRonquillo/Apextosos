@@ -37,7 +37,9 @@ public class Pasa_preguntas extends javax.swing.JPanel {
         this.curso = curso;
         this.codigo = codigo;
         apex_DAO apx = new apex_DAO(color1_d, color2_d, color3_d);
-        this.pregunta = apx.Buscar_preguntaB(curso, codigo);
+        System.out.println("El curso es:"+curso);
+        System.out.println("El codigo es:"+codigo);
+        this.pregunta = apx.Buscar_preguntaB(curso.replaceAll("\\s+", ""), codigo);
         initComponents();
         this.textopr.setText(pregunta.getInstrucciones() + " \n" +pregunta.getEnunciado());
         this.arraytxt = new JTextField[4];

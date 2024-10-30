@@ -50,7 +50,7 @@ public class Simulacros extends javax.swing.JPanel {
     public void generar(){
         apex_DAO apx = new apex_DAO(color1,color2,color3);
         int dif =Integer.parseInt(dificultad.getSelectedItem().toString()); 
-        ArrayList<Pregunta>datos = apx.Buscar_preguntaB_dificultad(curso, dif*10);
+        ArrayList<Pregunta>datos = apx.Buscar_preguntaB_dificultad(curso.replaceAll("\\s+", ""), dif*10);
         int[] codigos = new int[datos.size()];
         int pos = 0;
         for(Pregunta general: datos){
@@ -273,7 +273,7 @@ public class Simulacros extends javax.swing.JPanel {
 
     private void ej1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ej1ActionPerformed
 
-        Pasa_preguntas ps= new Pasa_preguntas(panel_problemas,nombre,curso,codigo1 ,color1, color2, color3);
+        Pasa_preguntas ps= new Pasa_preguntas(panel_problemas,nombre,curso.replaceAll("\\s+", ""),codigo1 ,color1, color2, color3);
         ps.setParcial();
         ps.getSimulacro(this);
         ps.getEj(ej1);
@@ -287,7 +287,7 @@ public class Simulacros extends javax.swing.JPanel {
 
     private void ej2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ej2ActionPerformed
 
-        Pasa_preguntas ps= new Pasa_preguntas(panel_problemas,nombre,curso,codigo2 ,color1, color2, color3);
+        Pasa_preguntas ps= new Pasa_preguntas(panel_problemas,nombre,curso.replaceAll("\\s+", ""),codigo2 ,color1, color2, color3);
         ps.setParcial();
         ps.getSimulacro(this);
         ps.getEj(ej2);
@@ -301,7 +301,7 @@ public class Simulacros extends javax.swing.JPanel {
 
     private void ej3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ej3ActionPerformed
 
-        Pasa_preguntas ps= new Pasa_preguntas(panel_problemas,nombre,curso,codigo3 ,color1, color2, color3);
+        Pasa_preguntas ps= new Pasa_preguntas(panel_problemas,nombre,curso.replaceAll("\\s+", ""),codigo3 ,color1, color2, color3);
         ps.setParcial();
         ps.getSimulacro(this);
         ps.getEj(ej3);
@@ -315,7 +315,7 @@ public class Simulacros extends javax.swing.JPanel {
 
     private void ej4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ej4ActionPerformed
 
-        Pasa_preguntas ps= new Pasa_preguntas(panel_problemas,nombre,curso,codigo4 ,color1, color2, color3);
+        Pasa_preguntas ps= new Pasa_preguntas(panel_problemas,nombre,curso.replaceAll("\\s+", ""),codigo4 ,color1, color2, color3);
         ps.setParcial();
         ps.getSimulacro(this);
         ps.getEj(ej4);
