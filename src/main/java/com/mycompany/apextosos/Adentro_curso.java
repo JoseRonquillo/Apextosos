@@ -4,7 +4,6 @@
  */
 package com.mycompany.apextosos;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.JFrame;
@@ -77,16 +76,16 @@ public class Adentro_curso extends javax.swing.JPanel {
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_simulacion.png"))); // NOI18N
         jButton3.setBorder(null);
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_online.png"))); // NOI18N
         jButton4.setBorder(null);
@@ -135,7 +134,7 @@ public class Adentro_curso extends javax.swing.JPanel {
                         .addGap(78, 78, 78)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(134, 134, 134)
+                        .addGap(154, 154, 154)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -201,16 +200,19 @@ public class Adentro_curso extends javax.swing.JPanel {
         this.repaint();                // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        boton_problema[] btns = new boton_problema[1];
-        Simulacros sm= new Simulacros(panel_principal,nombre,curso ,color1, color2, color3,btns);
-            sm.setSize(780,635);
-            sm.setLocation(0,0);
-            panel_principal.removeAll();
-            panel_principal.add(sm,BorderLayout.CENTER);
-            panel_principal.revalidate();
-            panel_principal.repaint();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        listadoPrecalculo return_game = new listadoPrecalculo(this.nombre, this.curso, this.panel_principal, this.color1, this.color2, this.color3);
+        return_game.setSize(2000, 1000);
+        return_game.setLocation(0,0 );
+        this.removeAll();
+        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(true);
+        frame.setSize(900, 800);
+        this.add(return_game);
+        this.revalidate();
+        this.repaint();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
