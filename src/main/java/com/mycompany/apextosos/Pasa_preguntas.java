@@ -22,7 +22,6 @@ public class Pasa_preguntas extends javax.swing.JPanel {
     JTextField[] arraytxt;
     
     public Pasa_preguntas(JPanel panel_principal, String nombre, String curso, int codigo, Color color1_d, Color color2_d, Color color3_d) {
-        
         this.panel_principal = panel_principal;
         this.nombre = nombre;
         this.curso = curso;

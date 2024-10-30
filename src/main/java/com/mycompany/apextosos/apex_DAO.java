@@ -187,4 +187,28 @@ public ArrayList<level_fisica> Buscar_level_fisica(String level) {
     return null;
     }
     
+    public ArrayList<Pregunta> Buscar_preguntaB_dificultad(String curso, int puntos){
+      String sql = "SELECT * FROM `"+curso+"B` WHERE `puntos` = '"+puntos+"'";
+      try {
+    con = acceso.Conectar ();
+    ps= con.prepareStatement(sql);
+    rs = ps.executeQuery();
+    ArrayList<Pregunta>datos = new ArrayList<Pregunta>();
+ while (rs.next()){
+    Pregunta pr = new Pregunta();
+    pr.setCodigo(rs.getInt(1));
+    pr.setInstrucciones(rs.getString(2));
+    pr.setEnunciado(rs.getString(3));
+    pr.setTipo(rs.getString(4));
+    pr.setP_r(rs.getString(5));
+    pr.setRespuesta(rs.getString(6));
+    pr.setPuntos(rs.getInt(7));
+    datos.add(pr);
+}
+ return datos;
+    }catch (Exception e) {
+}
+    return null;
+    }
+    
 }
