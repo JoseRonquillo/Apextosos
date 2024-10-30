@@ -80,6 +80,11 @@ public class login extends javax.swing.JFrame {
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
         panelRound1.setRoundTopRight(50);
+        panelRound1.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                panelRound1ComponentHidden(evt);
+            }
+        });
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user_15194213.png"))); // NOI18N
@@ -149,6 +154,11 @@ public class login extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jButton2.setText("Registrarse");
         jButton2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         panelRound1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 217, 33));
 
         jPanel4.setBackground(new Color(0.0f, 0.0f, 0.0f, 0f));
@@ -242,6 +252,16 @@ public class login extends javax.swing.JFrame {
         jPasswordField1.setText("contraseña");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void panelRound1ComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_panelRound1ComponentHidden
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelRound1ComponentHidden
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Registrar rg = new Registrar();
+        rg.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
