@@ -6,9 +6,11 @@ package com.mycompany.apextosos;
 
 import java.awt.Color;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -24,6 +26,11 @@ public class Pasa_preguntas extends javax.swing.JPanel {
     boolean parcial;
     Simulacros sim;
     JButton ej;    
+    Color color1;
+    Color color2;
+    Color color3;
+    
+
     public Pasa_preguntas(JPanel panel_principal, String nombre, String curso, int codigo, Color color1_d, Color color2_d, Color color3_d) {
         this.panel_principal = panel_principal;
         this.nombre = nombre;
@@ -36,6 +43,10 @@ public class Pasa_preguntas extends javax.swing.JPanel {
         this.arraytxt = new JTextField[4];
         this.parcial = false;
         crear_cajas_txt();
+        this.color1 = color1_d;
+        this.color2 = color2_d;
+        this.color3 = color3_d;
+
     }
 
     @SuppressWarnings("unchecked")
@@ -47,6 +58,7 @@ public class Pasa_preguntas extends javax.swing.JPanel {
         textopr = new javax.swing.JTextArea();
         opciones = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         panelRound1.setBackground(new java.awt.Color(61, 235, 188));
         panelRound1.setRoundBottomLeft(50);
@@ -89,6 +101,13 @@ public class Pasa_preguntas extends javax.swing.JPanel {
             }
         });
 
+        jButton2.setText("Regresar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -97,6 +116,8 @@ public class Pasa_preguntas extends javax.swing.JPanel {
             .addComponent(opciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
@@ -107,7 +128,9 @@ public class Pasa_preguntas extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(opciones, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -119,9 +142,25 @@ public class Pasa_preguntas extends javax.swing.JPanel {
             ej.setEnabled(false);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        System.out.println(this.color1);
+        listadoPrecalculo return_curse = new listadoPrecalculo(this.nombre, this.curso, this.panel_principal, this.color1, this.color2, this.color3);
+        return_curse.setSize(2000, 1000);
+        return_curse.setLocation(0,0 );
+        this.removeAll();   
+        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(true);
+        frame.setSize(900, 700);
+        this.add(return_curse);
+        this.revalidate();
+        this.repaint();
+    }//GEN-LAST:event_jButton2ActionPerformed
     
     public void setParcial(){
     this.parcial = true;
+    this.jButton2.setVisible(false);
     }
     
     public void getSimulacro(Simulacros simulacro){
@@ -188,6 +227,7 @@ public class Pasa_preguntas extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel opciones;
     private com.mycompany.apextosos.PanelRound panelRound1;

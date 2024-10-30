@@ -109,11 +109,9 @@ public class listadoPrecalculo extends javax.swing.JPanel {
         //lista de botones 
         JButton[] botones = new JButton[cantidad]; 
         
-        int posicion_x = 0;
         int posicion_y = 0;
         int sumarle_X = 0;
         int contador = 0;
-        String ruta;
         String txt;
         String[] niveles = {"Fácil", "Intermedio", "Difícil"};
         int j = 0;
@@ -124,25 +122,29 @@ public class listadoPrecalculo extends javax.swing.JPanel {
         
         for (int i = 0; i < botones.length; i++) {
                 
-                ruta = new String("/images_games/botonazul.png");
                 txt = "Problema " + (i+1) + " - " + niveles[j % 3];
                 j++;
-                ImageIcon icono = new ImageIcon(listadoPrecalculo.class.getResource(ruta));
+                posicion_y += 25;
                 botones[i] = new JButton(txt);
-                botones[i].setIcon(icono);
                 botones[i].setVerticalTextPosition(JLabel.CENTER);
                 botones[i].setHorizontalTextPosition(JLabel.CENTER);
                 botones[i].setFont(new Font("Arial", Font.BOLD, 16)); // Cambia la fuente, estilo y tamaño
                 botones[i].setForeground(Color.WHITE);
-                botones[i].setBackground(Color.darkGray);
-                botones[i].setBounds(posicion_x, posicion_y, 900, 50);
-                botones[i].setBorderPainted(false);
-                botones[i].setContentAreaFilled(false);
+                botones[i].setBounds(200, posicion_y, 350, 50);
+                botones[i].setBackground(color2);
                 if (contador == 2){
                     sumarle_X = sumarle_X * -1;
                     contador = 0;
                 }
+                if(color1.equals(Color.decode("#111518"))){
+                    botones[i].setForeground(Color.WHITE);
+                    this.lb_curse_name.setForeground(Color.WHITE);
+                }
+                else{
+                    botones[i].setForeground(Color.BLACK);
+                    this.lb_curse_name.setForeground(Color.BLACK);
 
+                }
                 final int index = i; 
                 botones[i].addActionListener(new ActionListener() {
                     @Override
@@ -304,6 +306,7 @@ public class listadoPrecalculo extends javax.swing.JPanel {
         frame.setSize(900, 700);
         this.add(return_curse);
         this.revalidate();
+        this.repaint();  
         this.repaint();      }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
