@@ -53,9 +53,7 @@ public class Adentro_curso extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
@@ -86,16 +84,6 @@ public class Adentro_curso extends javax.swing.JPanel {
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_online.png"))); // NOI18N
-        jButton4.setBorder(null);
-        jButton4.setBorderPainted(false);
-        jButton4.setContentAreaFilled(false);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_config.png"))); // NOI18N
         jButton5.setBorder(null);
         jButton5.setBorderPainted(false);
@@ -105,11 +93,6 @@ public class Adentro_curso extends javax.swing.JPanel {
                 jButton5ActionPerformed(evt);
             }
         });
-
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_reto.png"))); // NOI18N
-        jButton6.setBorder(null);
-        jButton6.setBorderPainted(false);
-        jButton6.setContentAreaFilled(false);
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_ranking.png"))); // NOI18N
         jButton7.setBorder(null);
@@ -130,12 +113,9 @@ public class Adentro_curso extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(178, 178, 178)
                                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -153,20 +133,12 @@ public class Adentro_curso extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4)
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton5)))
-                .addContainerGap(256, Short.MAX_VALUE))
+                    .addComponent(jButton5))
+                .addContainerGap(349, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                                
         game_frame return_game = new game_frame(this.nombre, this.curso, this.panel_principal, this.color1, this.color2, this.color3);
@@ -213,9 +185,7 @@ public class Adentro_curso extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

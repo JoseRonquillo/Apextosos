@@ -78,7 +78,6 @@ public class settings extends javax.swing.JPanel {
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(11, 15, 17));
@@ -117,25 +116,6 @@ public class settings extends javax.swing.JPanel {
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(11, 15, 17));
-        jButton8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("CERRAR SESIÓN");
-        jButton8.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 51, 51))); // NOI18N
-        jButton8.setBorderPainted(false);
-        jButton8.setDefaultCapable(false);
-        jButton8.setFocusPainted(false);
-        jButton8.setFocusable(false);
-        jButton8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton8.setRequestFocusEnabled(false);
-        jButton8.setRolloverEnabled(false);
-        jButton8.setVerifyInputWhenFocusTarget(false);
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-
         jButton10.setBackground(new java.awt.Color(11, 15, 17));
         jButton10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton10.setForeground(new java.awt.Color(255, 255, 255));
@@ -162,7 +142,6 @@ public class settings extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
                     .addComponent(jButton10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -179,11 +158,9 @@ public class settings extends javax.swing.JPanel {
                     .addComponent(jLabel1))
                 .addGap(33, 33, 33)
                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(227, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -205,12 +182,9 @@ public class settings extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+        System.exit(0);
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         System.out.println(this.color1);
@@ -247,7 +221,6 @@ public class settings extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
