@@ -48,7 +48,7 @@ public class Simulacros extends javax.swing.JPanel {
     public void generar(){
         apex_DAO apx = new apex_DAO(color1,color2,color3);
         int dif =Integer.parseInt(dificultad.getSelectedItem().toString()); 
-        ArrayList<Pregunta>datos = apx.Buscar_preguntaB_dificultad(curso, dif*10);
+        ArrayList<Pregunta>datos = apx.Buscar_preguntaB_dificultad(curso.replaceAll("\\s+", ""), dif*10);
         int[] codigos = new int[datos.size()];
         int pos = 0;
         for(Pregunta general: datos){
