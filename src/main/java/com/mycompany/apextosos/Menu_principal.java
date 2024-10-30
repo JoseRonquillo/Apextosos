@@ -29,6 +29,7 @@ public class Menu_principal extends javax.swing.JFrame {
         Home hm = new Home(nombre,cursos,panel_principal, color1_d, color2_d, color3_d);
         hm.setSize(807,511);
         hm.setLocation(0,0);
+        this.panel_principal.setBackground(color1_d);
         panel_principal.removeAll();
         panel_principal.add(hm,BorderLayout.CENTER);
         panel_principal.revalidate();

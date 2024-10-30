@@ -210,9 +210,46 @@ public ArrayList<level_fisica> Buscar_level_precalculo(String level) {
     }
     return datos;
 }
+public void actualizarCodigo2(String usuarioId, String nuevoCodigo) {
+    String sqlVerificar = "SELECT idPrecalculo FROM Precalculo WHERE idPrecalculo = ?";
+    String sqlActualizar = "UPDATE Progreso_Curso2 SET codigo = ? WHERE usuario_id = ?";
+
+    try {
+        con = acceso.Conectar();
+
+        // Verificar si idfisica existe en la tabla fisica
+        try (PreparedStatement stmtVerificar = con.prepareStatement(sqlVerificar)) {
+            stmtVerificar.setString(1, nuevoCodigo);
+            ResultSet rsVerificar = stmtVerificar.executeQuery();
+            
+            if (rsVerificar.next()) { // idfisica existe
+                try (PreparedStatement stmtActualizar = con.prepareStatement(sqlActualizar)) {
+                    stmtActualizar.setString(1, nuevoCodigo);
+                    stmtActualizar.setString(2, usuarioId);
+
+                    int filasActualizadas = stmtActualizar.executeUpdate();
+                    System.out.println("Filas actualizadas: " + filasActualizadas);
+                }
+            } else {
+                System.out.println("El idfisica especificado no existe en la tabla fisica.");
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        System.out.println("Error al actualizar el código.");
+    } finally {
+        try {
+            if (con != null) con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
 
     public void actualizarCodigo(String usuarioId, String nuevoCodigo) {
-        String sqlVerificar = "SELECT idfisica FROM fisica WHERE idfisica = ?";
+        String sqlVerificar = "SELECT idfisica FROM fisica WHERE idfisica  = ?";
         String sqlActualizar = "UPDATE Progreso_Curso SET codigo = ? WHERE usuario_id = ?";
 
         try {

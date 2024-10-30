@@ -35,6 +35,16 @@ public class Home extends javax.swing.JPanel {
         String letra = String.valueOf(caracter);
         if (letra.equals(",")){
             boton_curso boton = new boton_curso(nombre,curso,panel_principal, color1, color2, color3);
+            if(color1.equals(Color.decode("#111518"))){
+                boton.setForeground(Color.WHITE);
+                this.jLabel1.setForeground(Color.WHITE);
+                this.bienvenida.setForeground(Color.WHITE);
+            }
+            else{
+                boton.setForeground(Color.BLACK);
+    
+            }
+            boton.setBackground(color1);
             panel_cursos.add(boton);
             curso = "";
         } else
@@ -43,7 +53,14 @@ public class Home extends javax.swing.JPanel {
         } else {
          curso += letra;
         }
-}
+        this.panel_cursos.setBackground(color1);
+        this.panelRound1.setBackground(color2);
+        this.setBackground(color1);
+        
+
+        
+
+    }
     }
 
     /**
