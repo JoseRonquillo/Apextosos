@@ -45,13 +45,14 @@ public class Home extends javax.swing.JPanel {
         char caracter = cursos.charAt(i);
         String letra = String.valueOf(caracter);
         //this.jButton2.setBackground(color1);
-
+        
         if (letra.equals(",")){
             boton_curso boton = new boton_curso(nombre,curso,panel_principal, color1, color2, color3);
             System.out.println(curso);
             boton.setText(curso);
             boton.setHorizontalTextPosition(SwingConstants.CENTER);
             boton.setVerticalTextPosition(SwingConstants.CENTER);
+            
             if(color1.equals(Color.decode("#111518"))){
                 boton.setForeground(Color.WHITE);
                 this.jLabel1.setForeground(Color.WHITE);
