@@ -3,9 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.mycompany.apextosos;
-
+import java.awt.BorderLayout;
 import java.awt.Color;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -81,6 +80,11 @@ public class Adentro_curso extends javax.swing.JPanel {
         jButton3.setBorder(null);
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_online.png"))); // NOI18N
         jButton4.setBorder(null);
@@ -192,6 +196,17 @@ public class Adentro_curso extends javax.swing.JPanel {
         this.revalidate();
         this.repaint();                // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        boton_problema[] btns = new boton_problema[1];
+        Simulacros sm= new Simulacros(panel_principal,nombre,curso ,color1, color2, color3,btns);
+            sm.setSize(780,635);
+            sm.setLocation(0,0);
+            panel_principal.removeAll();
+            panel_principal.add(sm,BorderLayout.CENTER);
+            panel_principal.revalidate();
+            panel_principal.repaint();          // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
