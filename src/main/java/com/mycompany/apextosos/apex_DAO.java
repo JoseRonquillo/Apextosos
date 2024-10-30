@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 
 public class apex_DAO {
@@ -66,6 +67,24 @@ ArrayList<usuario>datos = new ArrayList<usuario>();
        if (rs.getString(2).equals(Contrasena)){
            comprobado = true;
        }
+} else {
+        System.out.println("Caracter invalido");
+} 
+          
+           }catch (Exception e) {
+}
+      return comprobado;
+  }
+    
+    public Boolean verificar_existencia(String Usuario){
+      Boolean comprobado = false;
+      String sql = "SELECT * FROM `usuarios` WHERE `usuario` = '"+Usuario+"'";
+      try {
+           con = acceso.Conectar();
+     ps= con.prepareStatement(sql);
+     rs = ps.executeQuery();
+     if (rs.next()) {
+           comprobado = true;
 } else {
         System.out.println("Caracter invalido");
 } 
@@ -209,6 +228,29 @@ public ArrayList<level_fisica> Buscar_level_fisica(String level) {
     }catch (Exception e) {
 }
     return null;
+    }
+    
+    public void insertar_usuario(String usuario,String contrasena,String nombre){
+        String sql = "INSERT INTO usuarios (usuario, contrasena, cursos, puntajes, nombre, tema) VALUES(?,?,?,?,?,?);";
+        boolean existente = verificar_existencia(usuario);
+        if(existente){
+        JOptionPane.showMessageDialog(null, "El usuario ya existe", "Error", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            try {
+    con = acceso.Conectar();
+    ps = con.prepareStatement(sql); 
+    ps.setString(1,usuario);
+    ps.setString(2,contrasena);
+     ps.setString(3,"Precalculo,Fisica,");
+     ps.setInt(4,0);
+     ps.setString(5, nombre);
+     ps.setString(6,"0");
+     ps.executeUpdate();
+    }catch (Exception e) {
+}
+        }
+    
     }
     
 }
