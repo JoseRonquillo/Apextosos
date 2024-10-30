@@ -144,7 +144,7 @@ public class Simulacros extends javax.swing.JPanel {
         );
         panel_problemasLayout.setVerticalGroup(
             panel_problemasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 547, Short.MAX_VALUE)
+            .addGap(0, 251, Short.MAX_VALUE)
         );
 
         panel_problemas.setLayout(new GridLayout(8,1));
