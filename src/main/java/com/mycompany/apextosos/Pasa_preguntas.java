@@ -46,7 +46,20 @@ public class Pasa_preguntas extends javax.swing.JPanel {
         this.color1 = color1_d;
         this.color2 = color2_d;
         this.color3 = color3_d;
-
+        this.setBackground(color1_d);
+        this.panelRound1.setBackground(color3_d);
+        this.opciones.setBackground(color2_d);
+        this.jButton1.setBackground(color1_d);
+        this.jButton2.setBackground(color1_d);
+        this.panel_principal.setBackground(color1_d);
+        if(color1.equals(Color.decode("#111518"))){
+            this.jButton1.setForeground(Color.WHITE);
+            this.jButton2.setForeground(Color.white);
+        }
+        else{
+            this.jButton1.setForeground(Color.BLACK);
+            this.jButton2.setForeground(Color.BLACK);
+        }
     }
 
     @SuppressWarnings("unchecked")

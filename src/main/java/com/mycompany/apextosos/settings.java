@@ -54,12 +54,7 @@ public class settings extends javax.swing.JPanel {
 
 
         }
-        System.out.println("color1");
 
-        System.out.println(color1);
-        System.out.println("color1");
-        System.out.println(Color.decode("#111518"));
-        System.out.println("color1");
 
     
     }
@@ -187,7 +182,7 @@ public class settings extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        System.out.println(this.color1);
+
         Adentro_curso return_curse = new Adentro_curso(this.nombre, this.curso, this.panel_principal, this.color1, this.color2, this.color3);
         return_curse.setSize(2000, 1000);
         return_curse.setLocation(0,0 );
@@ -211,9 +206,9 @@ public class settings extends javax.swing.JPanel {
             this.color1 = Color.decode("#F5F5F5");
             this.color2 = Color.decode("#E1E8EB");
             this.color3 = Color.decode("#D6D9DC");
-
-
         }
+        this.panel_principal.setBackground(color1);
+
                 // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
