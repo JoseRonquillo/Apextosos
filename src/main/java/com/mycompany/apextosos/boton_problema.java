@@ -17,7 +17,7 @@ public class boton_problema extends JButton{
     private Color color2;
     private Color color3;
     
-    public boton_problema(int codigo, String nombre, String curso, JPanel panel_principal, Color data_color1, Color data_color2, Color data_color3){
+    public boton_problema(int codigo, String nombre, String curso, JPanel panel_principal, Color data_color1, Color data_color2, Color data_color3,boton_problema[] btns){
         this.codigo = codigo;
         this.nombre = nombre;
         this.curso = curso;
@@ -30,7 +30,7 @@ public class boton_problema extends JButton{
             @Override
             public void actionPerformed(ActionEvent e) {
             Pasa_preguntas ps= new Pasa_preguntas(panel_principal,nombre,curso,codigo ,color1, color2, color3);
-            ps.setSize(1487,1411);
+            ps.setSize(780,635);
             ps.setLocation(0,0);
             panel_principal.removeAll();
             panel_principal.add(ps,BorderLayout.CENTER);

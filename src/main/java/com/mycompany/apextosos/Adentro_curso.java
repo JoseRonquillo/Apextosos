@@ -202,8 +202,9 @@ public class Adentro_curso extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Simulacros sm= new Simulacros(panel_principal,nombre,curso ,color1, color2, color3);
-            sm.setSize(1487,1411);
+        boton_problema[] btns = new boton_problema[1];
+        Simulacros sm= new Simulacros(panel_principal,nombre,curso ,color1, color2, color3,btns);
+            sm.setSize(780,635);
             sm.setLocation(0,0);
             panel_principal.removeAll();
             panel_principal.add(sm,BorderLayout.CENTER);
