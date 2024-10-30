@@ -226,13 +226,13 @@ public class game_frame extends javax.swing.JPanel {
     public void generate_level(int type_of_level){
         if (type_of_level < this.level){
             level_game sta = new level_game(this.nombre, this.curso, this.panel_principal, this.color1, this.color2, this.color3, type_of_level);
-            sta.setSize(1280, 800);
-            sta.setLocation(0,0 );
+            sta.setSize(780, 635);
+            sta.setLocation(-0,0 );
             this.removeAll();
             JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setResizable(true);
-            frame.setSize(1280, 800);
+            frame.setSize(780, 635);
             this.add(sta);
             this.revalidate();
             this.repaint();
