@@ -15,12 +15,7 @@ import java.sql.SQLException;
 import javax.swing.*;
 import com.mysql.cj.jdbc.exceptions.SQLError;
 import java.awt.*;
-/**
 
-/**
- *
- * @author JuanMa
- */
 public class listadoPrecalculo extends javax.swing.JPanel {
     public Color color1;
     public Color color2;
@@ -62,10 +57,10 @@ public class listadoPrecalculo extends javax.swing.JPanel {
         Connection con = null; 
         PreparedStatement ps = null;
         ResultSet rs = null;
-
+        System.out.println(curso);
         try {
             con = acceso.Conectar();
-            String sql = "SELECT COUNT(*) AS total FROM PrecalculoB";
+            String sql = "SELECT COUNT(*) AS total FROM "+curso+"B";
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
 
@@ -153,6 +148,7 @@ public class listadoPrecalculo extends javax.swing.JPanel {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         generate_level(index);
+                        
                     }
                 });
 
@@ -171,6 +167,13 @@ public class listadoPrecalculo extends javax.swing.JPanel {
     public void generate_level(int type_of_level){
         if (type_of_level < this.level){
             level_game sta = new level_game(this.nombre, this.curso, this.panel_principal, this.color1, this.color2, this.color3, type_of_level);
+            //Pasa_preguntas ps= new Pasa_preguntas(panel_principal,nombre,curso,type_of_level ,color1, color2, color3);
+            //ps.setSize(780,635);
+            //ps.setLocation(0,0);
+            //panel_principal.removeAll();
+            //panel_principal.add(ps,BorderLayout.CENTER);
+            //panel_principal.revalidate();
+            //panel_principal.repaint();
             sta.setSize(4000, 2000);
             sta.setLocation(0,0 );
             this.removeAll();
