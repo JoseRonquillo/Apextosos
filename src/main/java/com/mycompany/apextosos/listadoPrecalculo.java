@@ -147,7 +147,14 @@ public class listadoPrecalculo extends javax.swing.JPanel {
                 botones[i].addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        generate_level(index);
+                        //generate_level(index);
+                        Pasa_preguntas ps= new Pasa_preguntas(panel_principal,nombre,curso,index+1 ,color1, color2, color3);
+            ps.setSize(780,635);
+            ps.setLocation(0,0);
+            panel_principal.removeAll();
+            panel_principal.add(ps,BorderLayout.CENTER);
+            panel_principal.revalidate();
+            panel_principal.repaint();
                         
                     }
                 });
