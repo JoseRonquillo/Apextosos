@@ -212,16 +212,15 @@ public class Adentro_curso extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        Home return_curse = new Home(this.nombre, this.cursos, this.panel_principal, this.color1, this.color2, this.color3);
-        return_curse.setSize(2000, 1000);
-        return_curse.setLocation(0,0 );
-        this.removeAll();   
-        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(900, 600);
-        this.add(return_curse);
-        this.revalidate();
-        this.repaint();  
+        Home hm = new Home(nombre,cursos,panel_principal, color1, color2, color3);
+        hm.setSize(807,450);
+        hm.setLocation(0,0);
+        this.panel_principal.setBackground(color1);
+        panel_principal.removeAll();
+        panel_principal.add(hm,BorderLayout.CENTER);
+        panel_principal.revalidate();
+        panel_principal.repaint();
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
 

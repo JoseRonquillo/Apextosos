@@ -145,11 +145,12 @@ public class listadoPrecalculo extends javax.swing.JPanel {
                     this.lb_curse_name.setForeground(Color.BLACK);
 
                 }
-                final int index = i; 
+                final int index = i;
                 botones[i].addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         //generate_level(index);
+                        
                         Pasa_preguntas ps= new Pasa_preguntas(panel_principal,nombre,curso,index+1 ,color1, color2, color3);
             ps.setSize(780,635);
             ps.setLocation(0,0);
