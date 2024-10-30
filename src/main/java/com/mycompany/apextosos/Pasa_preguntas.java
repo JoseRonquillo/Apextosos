@@ -5,6 +5,7 @@
 package com.mycompany.apextosos;
 
 import java.awt.Color;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -20,9 +21,10 @@ public class Pasa_preguntas extends javax.swing.JPanel {
     int codigo;
     Pregunta pregunta;
     JTextField[] arraytxt;
-    
+    boolean parcial;
+    Simulacros sim;
+    JButton ej;    
     public Pasa_preguntas(JPanel panel_principal, String nombre, String curso, int codigo, Color color1_d, Color color2_d, Color color3_d) {
-        
         this.panel_principal = panel_principal;
         this.nombre = nombre;
         this.curso = curso;
@@ -32,6 +34,7 @@ public class Pasa_preguntas extends javax.swing.JPanel {
         initComponents();
         this.textopr.setText(pregunta.getInstrucciones() + " \n" +pregunta.getEnunciado());
         this.arraytxt = new JTextField[4];
+        this.parcial = false;
         crear_cajas_txt();
     }
 
@@ -77,7 +80,7 @@ public class Pasa_preguntas extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        opciones.setLayout(new java.awt.GridLayout());
+        opciones.setLayout(new java.awt.GridLayout(1, 0));
 
         jButton1.setText("Enviar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -111,7 +114,23 @@ public class Pasa_preguntas extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         verificar_respuestas();
+        if(parcial){
+            jButton1.setEnabled(false);
+            ej.setEnabled(false);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+    
+    public void setParcial(){
+    this.parcial = true;
+    }
+    
+    public void getSimulacro(Simulacros simulacro){
+        this.sim = simulacro;
+    }
+    
+    public void getEj(JButton ej){
+        this.ej = ej;
+    }
     
     public void crear_cajas_txt(){
         String tipo_e = pregunta.getTipo();
@@ -158,6 +177,9 @@ public class Pasa_preguntas extends javax.swing.JPanel {
         
         if (correctas == cantidad){
             JOptionPane.showMessageDialog(null, "¡Respuesta correcta!", "Felicidades", JOptionPane.INFORMATION_MESSAGE);
+            if(parcial){
+                sim.sumar_nota();
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Respuesta incorrecta", "Intenta otra vez", JOptionPane.INFORMATION_MESSAGE);
         }
