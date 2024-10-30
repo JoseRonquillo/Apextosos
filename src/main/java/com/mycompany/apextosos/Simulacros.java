@@ -9,7 +9,9 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Random;
-import javax.swing.JPanel;
+
+import javax.swing.*;
+
 
 /**
  *
@@ -191,6 +193,11 @@ public class Simulacros extends javax.swing.JPanel {
         });
 
         jButton6.setText("Terminar examen");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Nota:");
 
@@ -319,6 +326,23 @@ public class Simulacros extends javax.swing.JPanel {
         panel_problemas.revalidate();
         panel_problemas.repaint();
     }//GEN-LAST:event_ej4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        String puntaje =  "Tu nota es: " + txtnota.getText();
+        JOptionPane.showMessageDialog(null, puntaje, "PUNTAJE: ", JOptionPane.INFORMATION_MESSAGE);
+
+        Adentro_curso return_curse = new Adentro_curso(this.nombre, this.curso, this.panel_principal, this.color1, this.color2, this.color3);
+        return_curse.setSize(2000, 2000);
+        return_curse.setLocation(0,0 );
+        this.removeAll();   
+        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(true);
+        frame.setSize(900, 700);
+        this.add(return_curse);
+        this.revalidate();
+        this.repaint();      
+    }//GEN-LAST:event_jButton6ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

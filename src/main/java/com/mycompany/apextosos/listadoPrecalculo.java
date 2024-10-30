@@ -150,7 +150,10 @@ public class listadoPrecalculo extends javax.swing.JPanel {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         //generate_level(index);
+                        panel_principal.setSize(10, 10);
+                        change_size();
                         Pasa_preguntas ps= new Pasa_preguntas(panel_principal,nombre,curso,index+1 ,color1, color2, color3);
+                        ps.panel_principal.setSize(10, 10);
             ps.setSize(780,635);
             ps.setLocation(0,0);
             panel_principal.removeAll();
@@ -171,6 +174,12 @@ public class listadoPrecalculo extends javax.swing.JPanel {
 
             this.add(scroll);
         }
+    }
+
+    public void change_size(){
+        this.setSize(10, 10);
+        this.panel_principal.setSize(10, 10);
+        this.panel1.setSize(10, 10);
     }
 
     public void generate_level(int type_of_level){
