@@ -46,11 +46,6 @@ public class Home extends javax.swing.JPanel {
         String letra = String.valueOf(caracter);
         //this.jButton2.setBackground(color1);
 
-        JButton btnflashcards = new JButton("HAZ TUS PROPIAS FLASHCARDS!");
-        btnflashcards.addActionListener(e -> open_menu_flash());
-        btnflashcards.setBounds(540, 70, 235, 30);
-        btnflashcards.setBackground(color1);
-        btnflashcards.setForeground(Color.WHITE);
         if (letra.equals(",")){
             boton_curso boton = new boton_curso(nombre,curso,panel_principal, color1, color2, color3);
             System.out.println(curso);
@@ -61,11 +56,9 @@ public class Home extends javax.swing.JPanel {
                 boton.setForeground(Color.WHITE);
                 this.jLabel1.setForeground(Color.WHITE);
                 this.bienvenida.setForeground(Color.WHITE);
-                btnflashcards.setForeground(Color.WHITE);
             }
             else{
                 boton.setForeground(Color.BLACK);
-                btnflashcards.setForeground(Color.BLACK);
 
             }
             
@@ -81,7 +74,6 @@ public class Home extends javax.swing.JPanel {
         this.panel_cursos.setBackground(color1);
         this.panelRound1.setBackground(color2);
         this.setBackground(color1);
-        this.add(btnflashcards);
 
 
         
@@ -89,15 +81,7 @@ public class Home extends javax.swing.JPanel {
     }
     }
 
-    public void open_menu_flash(){
-        menu_flash_cards ad = new menu_flash_cards(this.nombre, this.cursos, this.panel_principal, this.color1, this.color2, this.color3);
-        ad.setSize(1487,1411);
-        ad.setLocation(0,0);
-        panel_principal.removeAll();
-        panel_principal.add(ad,BorderLayout.CENTER);
-        panel_principal.revalidate();
-        panel_principal.repaint();
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
