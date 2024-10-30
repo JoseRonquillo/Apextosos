@@ -15,8 +15,8 @@ Agregamos la opción de Simulación, esta dará al usuario 4 problemas para reso
 
 Nombre del Equipo: Apextosos
 
-Vyncen Yoel Lara de León 1615823
-Juan Marcos Cortéz Enriquez
-José Antonio Ronquillo Meza 1547223
-Roger Leonardo Monterroso Recinos 1565723
-Rocío Iveth Cojulúm Juárez 1547023
+Vyncen Yoel Lara de León 1615823  
+Juan Marcos Cortéz Enriquez  
+José Antonio Ronquillo Meza 1547223  
+Roger Leonardo Monterroso Recinos 1565723  
+Rocío Iveth Cojulúm Juárez 1547023  
