@@ -74,7 +74,7 @@ public class Home extends javax.swing.JPanel {
         this.panel_cursos.setBackground(color1);
         this.panelRound1.setBackground(color2);
         this.setBackground(color1);
-
+        System.out.println(this.cursos);
 
         
 
