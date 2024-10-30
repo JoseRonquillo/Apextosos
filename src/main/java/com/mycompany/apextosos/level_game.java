@@ -42,7 +42,7 @@ public class level_game extends javax.swing.JPanel {
         this.level_generate = String.valueOf(level_generate + 1);
         initComponents();
         initComponents2(this.color1, this.color2, this.color3);
-        load_images();
+        
 
     }
     
@@ -55,61 +55,132 @@ public class level_game extends javax.swing.JPanel {
         this.jPanel1.setBackground(color3);
         this.jButton4.setBackground(color3);
         this.jButton7.setBackground(color3);
-        // busqueda de dato
-        apex_DAO dao = new apex_DAO(color1, color2, color3);
-        ArrayList<level_fisica> nivel = dao.Buscar_level_fisica(this.level_generate);
-        if (nivel != null && !nivel.isEmpty()) {
-            for (level_fisica p : nivel) {
-                this.exercise = p.pregunta;
-                this.dimensional = p.dimensional;
-                this.answer = p.respuesta;
-                // generar random donde guardar la respuesta 
-                Random random = new Random();
-                int randomInt = random.nextInt(4) + 1;
-                // generar rangos
-                float inicio_rango = Float.parseFloat(p.respuesta);
-
-                float rango_min = inicio_rango * 0.5f - inicio_rango;
-                float rango_max = inicio_rango * 0.5f + inicio_rango;
-
-                // generar archivos 
-                String value1 = generate_false_answer(rango_min, rango_max);
-                String value2 = generate_false_answer(rango_min, rango_max);
-                String value3 = generate_false_answer(rango_min, rango_max);
-
-                if (randomInt == 1){
-                    this.jLabel4.setText(this.answer);
-                    this.jLabel5.setText(value1);
-                    this.jLabel3.setText(value2);
-                    this.jLabel1.setText(value3);
-                }
-                else if (randomInt == 2){
-                    this.jLabel5.setText(this.answer);
-                    this.jLabel4.setText(value1);
-                    this.jLabel3.setText(value2);
-                    this.jLabel1.setText(value3);
-                }
-                else if (randomInt == 3){
-                    this.jLabel3.setText(this.answer);
-                    this.jLabel5.setText(value1);
-                    this.jLabel4.setText(value2);
-                    this.jLabel1.setText(value3);
-                }
-                else{
-                    this.jLabel1.setText(this.answer);
-                    this.jLabel5.setText(value1);
-                    this.jLabel3.setText(value2);
-                    this.jLabel4.setText(value3);
-                }
-
-                System.out.println(randomInt);
-
-            }
-        } else {
-            System.out.println("No se encontraron datos o hubo un error.");
+        System.out.println(color1.equals(Color.decode("#111518")));
+        if(color1.equals(Color.decode("#111518"))){
+            this.question.setForeground(Color.WHITE);
+        }
+        else{
+            this.question.setForeground(Color.BLACK);
         }
 
+
+        // busqueda de dato
+        if(this.curso.toLowerCase().replaceAll("\\s+", "").trim().equals("fisica")){
+            apex_DAO dao = new apex_DAO(color1, color2, color3);
+            ArrayList<level_fisica> nivel = dao.Buscar_level_fisica(this.level_generate);
+            if (nivel != null && !nivel.isEmpty()) {
+                for (level_fisica p : nivel) {
+                    this.exercise = p.pregunta;
+                    this.dimensional = p.dimensional;
+                    this.answer = p.respuesta;
+
+                    // generar random donde guardar la respuesta 
+                    Random random = new Random();
+                    int randomInt = random.nextInt(4) + 1;
+                    // generar rangos
+                    float inicio_rango = Float.parseFloat(p.respuesta);
+
+                    float rango_min = inicio_rango * 0.5f - inicio_rango;
+                    float rango_max = inicio_rango * 0.5f + inicio_rango;
+
+                    // generar archivos 
+                    String value1 = generate_false_answer(rango_min, rango_max);
+                    String value2 = generate_false_answer(rango_min, rango_max);
+                    String value3 = generate_false_answer(rango_min, rango_max);
+
+                    if (randomInt == 1){
+                        this.jLabel4.setText(this.answer);
+                        this.jLabel5.setText(value1);
+                        this.jLabel3.setText(value2);
+                        this.jLabel1.setText(value3);
+                    }
+                    else if (randomInt == 2){
+                        this.jLabel5.setText(this.answer);
+                        this.jLabel4.setText(value1);
+                        this.jLabel3.setText(value2);
+                        this.jLabel1.setText(value3);
+                    }
+                    else if (randomInt == 3){
+                        this.jLabel3.setText(this.answer);
+                        this.jLabel5.setText(value1);
+                        this.jLabel4.setText(value2);
+                        this.jLabel1.setText(value3);
+                    }
+                    else{
+                        this.jLabel1.setText(this.answer);
+                        this.jLabel5.setText(value1);
+                        this.jLabel3.setText(value2);
+                        this.jLabel4.setText(value3);
+                    }
+
+                    load_images();
+                }
+            } else {
+                System.out.println("No se encontraron datos o hubo un error.");
+            }
+        }
+        else{
+
+            apex_DAO dao = new apex_DAO(color1, color2, color3);
+            ArrayList<level_fisica> nivel = dao.Buscar_level_precalculo(this.level_generate);
+            if (nivel != null && !nivel.isEmpty()) {
+                for (level_fisica p : nivel) {
+                    this.exercise = p.pregunta;
+                    this.dimensional = p.dimensional;
+                    this.question.setText(this.exercise);
+                    this.answer = p.respuesta;
+                    // generar random donde guardar la  respuesta 
+                    Random random = new Random();
+                    int randomInt = random.nextInt(4) + 1;
+                    // generar rangos
+                    float inicio_rango = Float.parseFloat(p.respuesta);
+                    
+                    float rango_min = inicio_rango * 0.5f - inicio_rango;
+                    float rango_max = inicio_rango * 0.5f + inicio_rango;
+                    
+                    // generar archivos 
+                    String value1 = generate_false_answer(rango_min, rango_max);
+                    String value2 = generate_false_answer(rango_min, rango_max);
+                    String value3 = generate_false_answer(rango_min, rango_max);
+
+                    if (randomInt == 1){
+                        this.jLabel4.setText(this.answer);
+                        this.jLabel5.setText(value1);
+                        this.jLabel3.setText(value2);
+                        this.jLabel1.setText(value3);
+                    }
+                    else if (randomInt == 2){
+                        this.jLabel5.setText(this.answer);
+                        this.jLabel4.setText(value1);
+                        this.jLabel3.setText(value2);
+                        this.jLabel1.setText(value3);
+                    }
+                    else if (randomInt == 3){
+                        this.jLabel3.setText(this.answer);
+                        this.jLabel5.setText(value1);
+                        this.jLabel4.setText(value2);
+                        this.jLabel1.setText(value3);
+                    }
+                    else{
+                        this.jLabel1.setText(this.answer);
+                        this.jLabel5.setText(value1);
+                        this.jLabel3.setText(value2);
+                        this.jLabel4.setText(value3);
+                    }
+
+                    System.out.println(randomInt);
+
+                }
+            } else {
+                System.out.println("No se encontraron datos o hubo un error.");
+            }
+        
+        }
+
+
     }
+
+    
 
     public String generate_false_answer(float min, float max){
         float randomFloat = min + (float) Math.random() * (max - min);
@@ -371,29 +442,60 @@ public class level_game extends javax.swing.JPanel {
         if (selectedModel != null) {
             // Comparar modelos para saber cuál está seleccionado
             if (selectedModel.equals(this.jRadioButton1.getModel())) {
-                System.out.println("Opción 1 seleccionada");
-                System.out.println(this.jLabel4.getText());
                 if (this.jLabel4.getText() == this.answer){
-                    //gano
+                    // actualizar nivel
+                    apex_DAO dao = new apex_DAO(color1, color2, color3);
+                    int new_leve = Integer.parseInt(this.level_generate) + 1;
+                    if(this.curso.toLowerCase().replaceAll("\\s+", "").trim().equals("fisica")){
+                        dao.actualizarCodigo(this.nombre, Integer.toString(new_leve));
+                    }
+                    else{
+                        dao.actualizarCodigo2(this.nombre, Integer.toString(new_leve));
+                    }
+                    JOptionPane.showMessageDialog(null, "¡Respuesta correcta!", "Felicidades", JOptionPane.INFORMATION_MESSAGE);
+
                 }
+            
             } else if (selectedModel.equals(this.jRadioButton2.getModel())) {
-                System.out.println("Opción 2 seleccionada");
-                System.out.println(this.jLabel5.getText());
                 if (this.jLabel5.getText() == this.answer){
-                    //gano
+                    apex_DAO dao = new apex_DAO(color1, color2, color3);
+                    int new_leve = Integer.parseInt(this.level_generate) + 1;
+                    if(this.curso.toLowerCase().replaceAll("\\s+", "").trim().equals("fisica")){
+                        dao.actualizarCodigo(this.nombre, Integer.toString(new_leve));
+                    }
+                    else{
+                        dao.actualizarCodigo2(this.nombre, Integer.toString(new_leve));
+                    }
+                    JOptionPane.showMessageDialog(null, "¡Respuesta correcta!", "Felicidades", JOptionPane.INFORMATION_MESSAGE);
+
                 }
             } else if (selectedModel.equals(this.jRadioButton3.getModel())) {
                 System.out.println("Opción 3 seleccionada");
                 System.out.println(this.jLabel1.getText());
                 if (this.jLabel1.getText() == this.answer){
-                    //gano
+                    apex_DAO dao = new apex_DAO(color1, color2, color3);
+                    int new_leve = Integer.parseInt(this.level_generate) + 1;
+                    if(this.curso.toLowerCase().replaceAll("\\s+", "").trim().equals("fisica")){
+                        dao.actualizarCodigo(this.nombre, Integer.toString(new_leve));
+                    }
+                    else{
+                        dao.actualizarCodigo2(this.nombre, Integer.toString(new_leve));
+                    }
+                    JOptionPane.showMessageDialog(null, "¡Respuesta correcta!", "Felicidades", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
              else if (selectedModel.equals(this.jRadioButton4.getModel())) {
-                System.out.println("Opción 4 seleccionada");
-                System.out.println(this.jLabel3.getText());
                 if (this.jLabel3.getText() == this.answer){
-                    //gano
+                    apex_DAO dao = new apex_DAO(color1, color2, color3);
+                    int new_leve = Integer.parseInt(this.level_generate) + 1;
+                    if(this.curso.toLowerCase().replaceAll("\\s+", "").trim().equals("fisica")){
+                        dao.actualizarCodigo(this.nombre, Integer.toString(new_leve));
+                    }
+                    else{
+                        dao.actualizarCodigo2(this.nombre, Integer.toString(new_leve));
+                    } 
+                    JOptionPane.showMessageDialog(null, "¡Respuesta correcta!", "Felicidades", JOptionPane.INFORMATION_MESSAGE);
+ 
                 }
             }
          else {

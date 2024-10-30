@@ -27,8 +27,9 @@ public class Menu_principal extends javax.swing.JFrame {
 
         initComponents();
         Home hm = new Home(nombre,cursos,panel_principal, color1_d, color2_d, color3_d);
-        hm.setSize(807,511);
+        hm.setSize(807,450);
         hm.setLocation(0,0);
+        this.panel_principal.setBackground(color1_d);
         panel_principal.removeAll();
         panel_principal.add(hm,BorderLayout.CENTER);
         panel_principal.revalidate();
@@ -52,11 +53,11 @@ public class Menu_principal extends javax.swing.JFrame {
         panel_principal.setLayout(panel_principalLayout);
         panel_principalLayout.setHorizontalGroup(
             panel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 785, Short.MAX_VALUE)
+            .addGap(0, 780, Short.MAX_VALUE)
         );
         panel_principalLayout.setVerticalGroup(
             panel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 637, Short.MAX_VALUE)
+            .addGap(0, 635, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

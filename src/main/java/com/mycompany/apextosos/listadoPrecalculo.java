@@ -15,12 +15,7 @@ import java.sql.SQLException;
 import javax.swing.*;
 import com.mysql.cj.jdbc.exceptions.SQLError;
 import java.awt.*;
-/**
 
-/**
- *
- * @author JuanMa
- */
 public class listadoPrecalculo extends javax.swing.JPanel {
     public Color color1;
     public Color color2;
@@ -62,10 +57,10 @@ public class listadoPrecalculo extends javax.swing.JPanel {
         Connection con = null; 
         PreparedStatement ps = null;
         ResultSet rs = null;
-
+        System.out.println(curso);
         try {
             con = acceso.Conectar();
-            String sql = "SELECT COUNT(*) AS total FROM PrecalculoB";
+            String sql = "SELECT COUNT(*) AS total FROM "+curso+"B";
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
 
@@ -114,11 +109,9 @@ public class listadoPrecalculo extends javax.swing.JPanel {
         //lista de botones 
         JButton[] botones = new JButton[cantidad]; 
         
-        int posicion_x = 0;
         int posicion_y = 0;
         int sumarle_X = 0;
         int contador = 0;
-        String ruta;
         String txt;
         String[] niveles = {"Fácil", "Intermedio", "Difícil"};
         int j = 0;
@@ -129,30 +122,42 @@ public class listadoPrecalculo extends javax.swing.JPanel {
         
         for (int i = 0; i < botones.length; i++) {
                 
-                ruta = new String("/images_games/botonazul.png");
                 txt = "Problema " + (i+1) + " - " + niveles[j % 3];
                 j++;
-                ImageIcon icono = new ImageIcon(listadoPrecalculo.class.getResource(ruta));
+                posicion_y += 25;
                 botones[i] = new JButton(txt);
-                botones[i].setIcon(icono);
                 botones[i].setVerticalTextPosition(JLabel.CENTER);
                 botones[i].setHorizontalTextPosition(JLabel.CENTER);
                 botones[i].setFont(new Font("Arial", Font.BOLD, 16)); // Cambia la fuente, estilo y tamaño
                 botones[i].setForeground(Color.WHITE);
-                botones[i].setBackground(Color.darkGray);
-                botones[i].setBounds(posicion_x, posicion_y, 900, 50);
-                botones[i].setBorderPainted(false);
-                botones[i].setContentAreaFilled(false);
+                botones[i].setBounds(200, posicion_y, 350, 50);
+                botones[i].setBackground(color2);
                 if (contador == 2){
                     sumarle_X = sumarle_X * -1;
                     contador = 0;
                 }
+                if(color1.equals(Color.decode("#111518"))){
+                    botones[i].setForeground(Color.WHITE);
+                    this.lb_curse_name.setForeground(Color.WHITE);
+                }
+                else{
+                    botones[i].setForeground(Color.BLACK);
+                    this.lb_curse_name.setForeground(Color.BLACK);
 
+                }
                 final int index = i; 
                 botones[i].addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        generate_level(index);
+                        //generate_level(index);
+                        Pasa_preguntas ps= new Pasa_preguntas(panel_principal,nombre,curso,index+1 ,color1, color2, color3);
+            ps.setSize(780,635);
+            ps.setLocation(0,0);
+            panel_principal.removeAll();
+            panel_principal.add(ps,BorderLayout.CENTER);
+            panel_principal.revalidate();
+            panel_principal.repaint();
+                        
                     }
                 });
 
@@ -171,6 +176,13 @@ public class listadoPrecalculo extends javax.swing.JPanel {
     public void generate_level(int type_of_level){
         if (type_of_level < this.level){
             level_game sta = new level_game(this.nombre, this.curso, this.panel_principal, this.color1, this.color2, this.color3, type_of_level);
+            //Pasa_preguntas ps= new Pasa_preguntas(panel_principal,nombre,curso,type_of_level ,color1, color2, color3);
+            //ps.setSize(780,635);
+            //ps.setLocation(0,0);
+            //panel_principal.removeAll();
+            //panel_principal.add(ps,BorderLayout.CENTER);
+            //panel_principal.revalidate();
+            //panel_principal.repaint();
             sta.setSize(4000, 2000);
             sta.setLocation(0,0 );
             this.removeAll();
@@ -294,6 +306,7 @@ public class listadoPrecalculo extends javax.swing.JPanel {
         frame.setSize(900, 700);
         this.add(return_curse);
         this.revalidate();
+        this.repaint();  
         this.repaint();      }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
