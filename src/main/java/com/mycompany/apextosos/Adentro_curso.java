@@ -217,8 +217,7 @@ public class Adentro_curso extends javax.swing.JPanel {
         this.removeAll();   
         JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(true);
-        frame.setSize(900, 500);
+        frame.setSize(900, 600);
         this.add(return_curse);
         this.revalidate();
         this.repaint();  
