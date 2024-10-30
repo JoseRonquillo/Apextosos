@@ -381,6 +381,7 @@ public void actualizarCodigo2(String usuarioId, String nuevoCodigo) {
         }
         else{
             try {
+                JOptionPane.showMessageDialog(null, "El usuario se registro correctamente", "Exito", JOptionPane.INFORMATION_MESSAGE);
     con = acceso.Conectar();
     ps = con.prepareStatement(sql); 
     ps.setString(1,usuario);

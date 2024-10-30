@@ -60,6 +60,7 @@ public class Registrar extends javax.swing.JFrame {
         txtUsuario = new javax.swing.JTextField();
         txtContra = new javax.swing.JTextField();
         txtConf = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -117,6 +118,17 @@ public class Registrar extends javax.swing.JFrame {
         panelRound1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 190, -1));
         panelRound1.add(txtConf, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 190, -1));
 
+        jButton4.setBackground(new Color(0.0f, 0.0f, 0.0f, 0.0019f));
+        jButton4.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jButton4.setText("Regresar");
+        jButton4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        panelRound1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 217, 33));
+
         getContentPane().add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 320, 490));
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 255));
@@ -139,16 +151,16 @@ public class Registrar extends javax.swing.JFrame {
         if(txtContra.getText().equals(txtConf.getText())){
             apex_DAO apx = new apex_DAO(color1,color2,color3);
             apx.insertar_usuario(txtUsuario.getText(), txtContra.getText(), txtNombre.getText());
-            boolean verificar = apx.verificar_existencia(txtUsuario.getText());
-            if(!verificar){
-                login lg = new login();
-            lg.setVisible(true);
-            dispose();
-            }
         } else {
             JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden", "Error", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        login lg = new login();
+        lg.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,6 +201,7 @@ public class Registrar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
