@@ -391,10 +391,40 @@ public void actualizarCodigo2(String usuarioId, String nuevoCodigo) {
      ps.setString(5, nombre);
      ps.setString(6,"0");
      ps.executeUpdate();
+     insert_progreso("Progreso_Curso",usuario);
+     insert_progreso("Progreso_Curso2",usuario);
     }catch (Exception e) {
 }
         }
     
+    }
+    
+    public int getRowCount(String tabla){
+        String sql = "SELECT COUNT(*) AS total FROM "+tabla+"";
+        int p_id = 0;
+        try{
+            con = acceso.Conectar ();
+    ps= con.prepareStatement(sql);
+    rs = ps.executeQuery();
+    if (rs.next()) {
+                p_id = rs.getInt("total");
+            }
+        }catch(Exception e){}
+        return p_id;
+    }
+    
+    public void insert_progreso(String tabla,String usuario){
+        String sql = "insert into "+tabla+" (progreso_id,usuario_id,codigo) values(?,?,?);";
+        int codigo = getRowCount(tabla) + 1;
+        try {
+    con = acceso.Conectar();
+    ps = con.prepareStatement(sql); 
+    ps.setInt(1,codigo);
+    ps.setString(2,usuario);
+     ps.setInt(3,1);
+     ps.executeUpdate();
+    }catch (Exception e) {
+}
     }
     
 }

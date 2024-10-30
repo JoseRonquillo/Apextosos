@@ -18,7 +18,7 @@ import java.awt.*;
  * @author JuanMa
  */
 public class level_game extends javax.swing.JPanel {
-    private Color color1;
+    private Color color1;   
     private Color color2;
     private Color color3;
     private String level_generate;
